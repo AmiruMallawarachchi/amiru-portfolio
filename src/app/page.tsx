@@ -39,9 +39,9 @@ export default function Home() {
               repeat: Infinity, 
               ease: "easeInOut" 
             }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px]" 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px]" 
           />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-white/10 rounded-full blur-[80px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-accent-secondary/10 rounded-full blur-[80px]" />
         </div>
 
         <motion.div
@@ -53,15 +53,15 @@ export default function Home() {
           className="relative z-10 text-center"
         >
           <div className="flex justify-center mb-10">
-            <div className="px-5 py-2 rounded-full border border-white/5 bg-white/5 backdrop-blur-sm flex items-center gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
-              <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/50">GEN AI ENGINEER</span>
+            <div className="px-5 py-2 rounded-full border border-accent/20 bg-accent/5 backdrop-blur-sm flex items-center gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-[0_0_10px_rgba(99,102,241,0.8)]" />
+              <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-accent/80">GEN AI ENGINEER</span>
             </div>
           </div>
           
           <h1 className="text-6xl md:text-8xl font-display font-bold mb-8 leading-tight">
             AMIRU <br />
-            <span className="text-white/20 hover:text-white transition-colors duration-500">
+            <span className="accent-gradient">
               MALLAWA ARACHCHI
             </span>
           </h1>

@@ -7,10 +7,11 @@
   --color-background: #050505;
   --color-foreground: #ffffff;
   
-  --color-accent: #ffffff;
-  --color-accent-muted: rgba(255, 255, 255, 0.4);
+  --color-accent: #6366f1;
+  --color-accent-secondary: #a855f7;
+  --color-accent-muted: rgba(99, 102, 241, 0.2);
   --color-surface: #0a0a0a;
-  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border: rgba(255, 255, 255, 0.05);
 
   --animation-scroll: scroll 1s linear infinite;
   @keyframes scroll {
@@ -46,7 +47,13 @@
   }
   
   .text-glow {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  }
+
+  .accent-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .noise-bg {

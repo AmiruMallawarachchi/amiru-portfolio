@@ -40,7 +40,7 @@ export default function SkillsSection() {
           <motion.div
             className="pointer-events-none absolute -inset-px opacity-0 group-hover/grid:opacity-100 transition duration-300 z-10"
             style={{
-              background: `radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(255,255,255,.06), transparent 40%)`,
+              background: `radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(99,102,241,0.15), transparent 40%)`,
             }}
           />
 
@@ -56,7 +56,7 @@ export default function SkillsSection() {
                     whileHover={{ x: 10 }}
                     className="flex items-center gap-3 text-lg font-light text-white/60 hover:text-white transition-all cursor-default"
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-white scale-0 group-hover:scale-100 transition-transform duration-500" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent scale-0 group-hover:scale-100 transition-transform duration-500 shadow-[0_0_8px_rgba(99,102,241,0.8)]" />
                     {skill}
                   </motion.div>
                 ))}

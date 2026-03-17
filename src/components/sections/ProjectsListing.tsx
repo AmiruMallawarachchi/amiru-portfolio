@@ -43,15 +43,15 @@ export default function ProjectsListing() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="group relative"
             >
-              <Link href={`/projects/${project.slug}`} className="block overflow-hidden rounded-3xl aspect-[16/9] relative">
+              <Link href={`/projects/${project.slug}`} className="block overflow-hidden rounded-3xl aspect-[16/9] relative group-hover:shadow-[0_0_50px_rgba(99,102,241,0.2)] transition-shadow duration-500">
                 <Image 
                   src={project.thumbnail}
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                  <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center text-black">
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                  <div className="w-20 h-20 rounded-full bg-accent flex items-center justify-center text-white shadow-[0_0_20px_rgba(99,102,241,0.5)]">
                     <ArrowUpRight strokeWidth={1} />
                   </div>
                 </div>
@@ -75,7 +75,7 @@ export default function ProjectsListing() {
                 </div>
                 <Link 
                   href={`/projects/${project.slug}`}
-                  className="text-white/30 hover:text-white transition-colors uppercase tracking-[0.2em] text-[10px] font-bold"
+                  className="text-accent/60 hover:text-accent transition-colors uppercase tracking-[0.2em] text-[10px] font-bold"
                 >
                   View Case Study
                 </Link>

@@ -35,7 +35,7 @@ export default function ContactSection() {
             
             <div className="space-y-12">
               <div className="flex items-start gap-6 group">
-                <div className="w-12 h-12 rounded-full glass flex items-center justify-center text-white/40 group-hover:text-white group-hover:bg-white/10 transition-all">
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 shadow-[0_0_15px_rgba(99,102,241,0.2)]">
                   <Mail size={20} />
                 </div>
                 <div>
@@ -47,7 +47,7 @@ export default function ContactSection() {
               </div>
 
               <div className="flex items-start gap-6 group">
-                <div className="w-12 h-12 rounded-full glass flex items-center justify-center text-white/40 group-hover:text-white group-hover:bg-white/10 transition-all">
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 shadow-[0_0_15px_rgba(99,102,241,0.2)]">
                   <Phone size={20} />
                 </div>
                 <div>
@@ -59,7 +59,7 @@ export default function ContactSection() {
               </div>
 
               <div className="flex items-start gap-6 group">
-                <div className="w-12 h-12 rounded-full glass flex items-center justify-center text-white/40 group-hover:text-white group-hover:bg-white/10 transition-all">
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 shadow-[0_0_15px_rgba(99,102,241,0.2)]">
                   <MapPin size={20} />
                 </div>
                 <div>
@@ -108,7 +108,7 @@ export default function ContactSection() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-white text-black py-4 rounded-2xl font-bold uppercase tracking-widest text-xs hover:bg-white/80 transition-all flex items-center justify-center gap-3 active:scale-95 disabled:opacity-50"
+                className="w-full bg-accent text-white py-4 rounded-2xl font-bold uppercase tracking-widest text-xs hover:bg-accent/80 transition-all flex items-center justify-center gap-3 active:scale-95 disabled:opacity-50 shadow-[0_0_30px_rgba(99,102,241,0.3)]"
                 disabled={formState === "submitting"}
               >
                 {formState === "submitting" ? "Sending..." : "Send Message"}

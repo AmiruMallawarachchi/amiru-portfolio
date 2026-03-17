@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-outfit);
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-background: #050505;
+  --color-foreground: #ffffff;
+  
+  --color-accent: #ffffff;
+  --color-accent-muted: rgba(255, 255, 255, 0.4);
+  --color-surface: #0a0a0a;
+  --color-border: rgba(255, 255, 255, 0.1);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --animation-scroll: scroll 1s linear infinite;
+  @keyframes scroll {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  --background: #050505;
+  --foreground: #ffffff;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-none;
+    cursor: none; /* We'll use a custom cursor */
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-white selection:text-black;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+
+  .noise-bg {
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.05;
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+  }
+
+  .grid-bg {
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
 }

@@ -1,19 +1,15 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { allProjects } from "@/lib/data";
+import { pinnedProjects } from "@/lib/data";
 import { ArrowUpRight } from "lucide-react";
 import TextReveal from "@/components/ui/TextReveal";
 
 export default function ProjectsListing() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
 
   return (
     <section ref={containerRef} className="py-32 bg-background">
@@ -34,8 +30,8 @@ export default function ProjectsListing() {
         </div>
 
         <div className="grid grid-cols-1 gap-32">
-          {allProjects.map((project, idx) => (
-            <motion.div 
+          {pinnedProjects.map((project, idx) => (
+            <motion.div
               key={idx}
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -43,8 +39,11 @@ export default function ProjectsListing() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="group relative"
             >
-              <Link href={`/projects/${project.slug}`} className="block overflow-hidden rounded-3xl aspect-[16/9] relative group-hover:shadow-[0_0_50px_rgba(99,102,241,0.2)] transition-shadow duration-500">
-                <Image 
+              <Link
+                href={`/projects/${project.slug}`}
+                className="block overflow-hidden rounded-3xl aspect-[16/9] relative group-hover:shadow-[0_0_50px_rgba(99,102,241,0.2)] transition-shadow duration-500"
+              >
+                <Image
                   src={project.thumbnail}
                   alt={project.title}
                   fill
@@ -56,7 +55,7 @@ export default function ProjectsListing() {
                   </div>
                 </div>
               </Link>
-              
+
               <div className="mt-12 flex flex-col md:flex-row justify-between items-start gap-8">
                 <div className="max-w-2xl">
                   <h3 className="text-4xl font-display mb-6 group-hover:translate-x-4 transition-transform duration-500">
@@ -67,13 +66,16 @@ export default function ProjectsListing() {
                   </p>
                   <div className="flex flex-wrap gap-3">
                     {project.technologies.map((tag: string, tIdx: number) => (
-                      <span key={tIdx} className="text-[10px] uppercase tracking-widest border border-white/10 px-3 py-1 rounded-full text-white/40">
+                      <span
+                        key={tIdx}
+                        className="text-[10px] uppercase tracking-widest border border-white/10 px-3 py-1 rounded-full text-white/40"
+                      >
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
-                <Link 
+                <Link
                   href={`/projects/${project.slug}`}
                   className="text-accent/60 hover:text-accent transition-colors uppercase tracking-[0.2em] text-[10px] font-bold"
                 >
@@ -83,6 +85,26 @@ export default function ProjectsListing() {
             </motion.div>
           ))}
         </div>
+
+        {/* View All Projects Link */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex justify-center mt-24"
+        >
+          <Link
+            href="/projects"
+            className="group flex items-center gap-4 glass px-10 py-5 rounded-full hover:bg-white hover:text-black transition-all duration-500"
+          >
+            <span className="text-xs uppercase tracking-[0.3em] font-bold">View All Projects</span>
+            <ArrowUpRight
+              size={16}
+              className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
+            />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

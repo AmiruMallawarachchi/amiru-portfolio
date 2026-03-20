@@ -15,8 +15,8 @@ function cn(...inputs: ClassValue[]) {
 const navItems = [
   { name: "Home", path: "/#home" },
   { name: "About", path: "/#about" },
-  { name: "Projects", path: "/#projects" },
-  { name: "Blog", path: "/#blog" },
+  { name: "Projects", path: "/projects" },
+  { name: "Blog", path: "/blog" },
   { name: "Contact", path: "/#contact" },
 ];
 
@@ -29,6 +29,13 @@ export default function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isActive = (path: string) => {
+    if (path === "/projects") return pathname === "/projects" || pathname.startsWith("/projects/");
+    if (path === "/blog") return pathname === "/blog" || pathname.startsWith("/blog/");
+    if (path === "/#home") return pathname === "/";
+    return false;
+  };
 
   return (
     <nav
@@ -47,14 +54,17 @@ export default function Navigation() {
               <span
                 className={cn(
                   "text-[10px] uppercase tracking-widest font-bold transition-colors duration-300",
-                  pathname === "/" ? "text-white" : "text-white/50 group-hover:text-white"
+                  isActive(item.path)
+                    ? "text-white"
+                    : "text-white/50 group-hover:text-white"
                 )}
               >
                 {item.name}
               </span>
               <motion.div
-                className="w-1 h-1 rounded-full bg-white opacity-0 mt-1"
-                animate={{ opacity: pathname === "/" ? 1 : 0 }}
+                className="w-1 h-1 rounded-full bg-accent mt-1"
+                animate={{ opacity: isActive(item.path) ? 1 : 0 }}
+                transition={{ duration: 0.2 }}
               />
             </Link>
           </Magnetic>

@@ -27,12 +27,12 @@ export default function AboutSection() {
         <span className="text-white/30 uppercase tracking-widest text-xs mb-8 block">01 / Profile</span>
         
         <div className="grid md:grid-cols-[1fr_2fr] gap-16 items-start">
-          <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-700">
+          <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-700">
             <Image 
-              src="/amiru.jpg"
+              src="/amiru-grad.jpg"
               alt="Amiru Mallawa Arachchi"
               fill
-              className="object-cover"
+              className="object-cover object-top"
             />
           </div>
           

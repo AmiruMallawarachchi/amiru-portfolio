@@ -11,6 +11,7 @@ import ProjectsListing from "@/components/sections/ProjectsListing";
 import BlogSection from "@/components/sections/BlogSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Magnetic from "@/components/ui/Magnetic";
+import { Download, Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
@@ -21,6 +22,36 @@ export default function Home() {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  const ctaButtons = [
+    {
+      label: "Download CV",
+      icon: <Download size={13} strokeWidth={2} />,
+      href: "/cv.pdf",
+      download: true,
+      primary: false,
+    },
+    {
+      label: "GitHub",
+      icon: <Github size={13} strokeWidth={2} />,
+      href: "https://github.com/amirumallawa",
+      external: true,
+      primary: false,
+    },
+    {
+      label: "LinkedIn",
+      icon: <Linkedin size={13} strokeWidth={2} />,
+      href: "https://linkedin.com/in/amirumallawa",
+      external: true,
+      primary: false,
+    },
+    {
+      label: "Email Me",
+      icon: <Mail size={13} strokeWidth={2} />,
+      href: "mailto:amiru@example.com",
+      primary: false,
+    },
+  ];
 
   return (
     <div className="relative">
@@ -70,12 +101,33 @@ export default function Home() {
             and modern full-stack development. Passionate about <span className="text-white italic">Generative AI</span>.
           </p>
           
-          <div className="flex justify-center">
+          {/* CTA Row */}
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            {/* Primary: View My Work */}
             <Magnetic>
-              <a href="#projects" className="glass px-8 py-4 rounded-full text-xs uppercase tracking-[0.2em] font-bold hover:bg-white hover:text-black transition-all duration-500">
+              <a
+                href="#projects"
+                className="glass px-7 py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-bold hover:bg-white hover:text-black transition-all duration-500 flex items-center gap-2"
+              >
+                <ArrowDown size={13} strokeWidth={2} />
                 View My Work
               </a>
             </Magnetic>
+
+            {/* Secondary CTAs */}
+            {ctaButtons.map((btn) => (
+              <Magnetic key={btn.label} strength={0.3}>
+                <a
+                  href={btn.href}
+                  {...(btn.download ? { download: true } : {})}
+                  {...(btn.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="flex items-center gap-2 px-5 py-3.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-white/60 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all duration-300 text-xs uppercase tracking-[0.15em] font-semibold"
+                >
+                  {btn.icon}
+                  {btn.label}
+                </a>
+              </Magnetic>
+            ))}
           </div>
         </motion.div>
 

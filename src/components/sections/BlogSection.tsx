@@ -2,32 +2,10 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight, BookOpen } from "lucide-react";
 import TextReveal from "@/components/ui/TextReveal";
-
-const blogPosts = [
-  {
-    title: "The Future of Generative AI in Software Engineering",
-    description: "Exploring how LLMs are reshaping the development lifecycle and what it means for the next generation of engineers.",
-    link: "https://medium.com",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-    date: "Mar 15, 2024"
-  },
-  {
-    title: "Building Scalable APIs with ASP.NET Core",
-    description: "A deep dive into RESTful architecture and security best practices for modern web applications.",
-    link: "https://medium.com",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc48?auto=format&fit=crop&q=80&w=800",
-    date: "Feb 28, 2024"
-  },
-  {
-    title: "Prompt Engineering: Beyond the Basics",
-    description: "Advanced techniques for getting the most out of Claude, GPT-4, and other leading language models.",
-    link: "https://medium.com",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc382821859?auto=format&fit=crop&q=80&w=800",
-    date: "Jan 12, 2024"
-  }
-];
+import { pinnedPosts } from "@/lib/data";
 
 export default function BlogSection() {
   return (
@@ -43,8 +21,8 @@ export default function BlogSection() {
               </h2>
             </TextReveal>
           </div>
-          <a 
-            href="https://medium.com" 
+          <a
+            href="https://medium.com"
             target="_blank"
             className="group flex items-center gap-3 text-white/40 hover:text-white transition-colors border-b border-white/10 pb-2"
           >
@@ -54,7 +32,7 @@ export default function BlogSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post, idx) => (
+          {pinnedPosts.map((post, idx) => (
             <motion.a
               key={idx}
               href={post.link}
@@ -66,18 +44,24 @@ export default function BlogSection() {
               className="group glass p-2 rounded-[2.5rem] flex flex-col h-full hover:border-white/30 transition-all duration-500"
             >
               <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden mb-8">
-                <Image 
-                  src={post.image} 
-                  alt={post.title} 
-                  fill 
-                  className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
+                {/* Category badge */}
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm text-[9px] uppercase tracking-widest text-white/70 border border-white/10">
+                    {post.category}
+                  </span>
+                </div>
               </div>
               <div className="px-6 pb-8 flex flex-col flex-grow">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-white/30 text-[10px] uppercase tracking-widest">{post.date}</span>
                   <div className="w-1 h-1 rounded-full bg-white/20" />
-                  <span className="text-white/30 text-[10px] uppercase tracking-widest">5 min read</span>
+                  <span className="text-white/30 text-[10px] uppercase tracking-widest">{post.readTime}</span>
                 </div>
                 <h3 className="text-2xl font-display mb-4 group-hover:text-white transition-colors leading-snug">
                   {post.title}
@@ -93,6 +77,26 @@ export default function BlogSection() {
             </motion.a>
           ))}
         </div>
+
+        {/* View All Articles Link */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex justify-center mt-16"
+        >
+          <Link
+            href="/blog"
+            className="group flex items-center gap-4 glass px-10 py-5 rounded-full hover:bg-white hover:text-black transition-all duration-500"
+          >
+            <span className="text-xs uppercase tracking-[0.3em] font-bold">View All Articles</span>
+            <ArrowUpRight
+              size={16}
+              className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
+            />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

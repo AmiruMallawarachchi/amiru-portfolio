@@ -29,7 +29,7 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-[1fr_2fr] gap-16 items-start">
           <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-700">
             <Image 
-              src="/amiru-grad.jpg"
+              src="/amiru.jpg"
               alt="Amiru Mallawa Arachchi"
               fill
               className="object-cover object-top"

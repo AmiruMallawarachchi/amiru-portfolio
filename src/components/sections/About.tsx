@@ -23,13 +23,13 @@ export default function AboutSection({ profile }: AboutProps) {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen py-32 px-4 flex items-center justify-center bg-background"
+      className="relative py-24 sm:py-32 px-5 sm:px-8 flex items-center justify-center bg-background"
     >
       <motion.div style={{ opacity, y }} className="max-w-6xl w-full">
         <span className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-8 block">{"// profile"}</span>
 
-        <div className="grid md:grid-cols-[1fr_2fr] gap-16 items-start">
-          <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-700">
+        <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-16 items-start">
+          <div className="relative aspect-[3/4] max-w-xs md:max-w-none rounded-2xl overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src={profile.hero_image || "/amiru.jpg"}
               alt={profile.full_name}
@@ -40,12 +40,12 @@ export default function AboutSection({ profile }: AboutProps) {
 
           <div>
             <TextReveal>
-              <h2 className="text-4xl md:text-6xl font-display font-medium mb-12 leading-tight">
+              <h2 className="font-display font-medium mb-10 sm:mb-12 leading-[1.05] text-[clamp(1.6rem,4.5vw,3.75rem)]">
                 {profile.bio_intro}
               </h2>
             </TextReveal>
 
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid md:grid-cols-2 gap-10 md:gap-12">
               <p className="text-foreground/60 text-lg font-light leading-relaxed">
                 {profile.bio_description}
               </p>

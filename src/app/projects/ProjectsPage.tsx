@@ -12,7 +12,7 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
   return (
     <div className="relative min-h-screen bg-background">
       {/* Hero */}
-      <section className="relative pt-48 pb-24 overflow-hidden px-4">
+      <section className="relative pt-32 sm:pt-40 md:pt-48 pb-16 sm:pb-24 overflow-hidden px-5 sm:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <Link
@@ -24,7 +24,7 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
             </Link>
           </motion.div>
 
-          <div className="flex flex-col md:flex-row justify-between items-end gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
             <div>
               <motion.span
                 initial={{ opacity: 0 }}
@@ -35,7 +35,7 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
                 {"// all work"}
               </motion.span>
               <TextReveal>
-                <h1 className="text-5xl md:text-8xl font-display font-medium leading-tight">
+                <h1 className="font-display font-medium leading-[0.95] text-[clamp(2.5rem,9vw,6rem)]">
                   ALL <br />
                   <span className="text-foreground/20 italic">PROJECTS</span>
                 </h1>
@@ -45,7 +45,7 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="max-w-md text-foreground/50 text-right font-light"
+              className="max-w-md text-foreground/50 md:text-right font-light"
             >
               The complete collection — from agentic AI systems to enterprise apps and mobile builds.
             </motion.p>
@@ -54,9 +54,9 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
       </section>
 
       {/* Projects List */}
-      <section className="pb-32 px-4">
+      <section className="pb-24 sm:pb-32 px-5 sm:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 gap-32">
+          <div className="grid grid-cols-1 gap-20 sm:gap-28 md:gap-32">
             {projects.map((project) => (
               <ProjectCard key={project.slug} project={project} featured={project.featured} />
             ))}

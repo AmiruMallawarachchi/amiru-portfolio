@@ -40,20 +40,20 @@ export default function Navigation() {
   return (
     <nav
       className={cn(
-        "fixed top-8 left-1/2 -translate-x-1/2 z-[90] transition-all duration-500",
-        scrolled ? "top-6" : "top-8"
+        "fixed inset-x-0 z-[90] flex justify-center px-3 transition-all duration-500",
+        scrolled ? "top-3 sm:top-6" : "top-3 sm:top-8"
       )}
     >
-      <div className="glass px-6 py-2 rounded-full flex items-center gap-4">
+      <div className="glass px-2 sm:px-6 py-2 rounded-full flex items-center gap-0 sm:gap-4 max-w-full">
         {navItems.map((item) => (
           <Magnetic key={item.path} strength={0.2}>
             <Link
               href={item.path}
-              className="relative px-3 py-2 group flex flex-col items-center"
+              className="relative px-2 sm:px-3 py-2 group flex flex-col items-center"
             >
               <span
                 className={cn(
-                  "text-[10px] uppercase tracking-widest font-bold transition-colors duration-300",
+                  "text-[9px] sm:text-[10px] uppercase tracking-[0.06em] sm:tracking-widest font-bold transition-colors duration-300 whitespace-nowrap",
                   isActive(item.path)
                     ? "text-white"
                     : "text-white/50 group-hover:text-white"

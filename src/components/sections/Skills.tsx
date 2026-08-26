@@ -23,12 +23,12 @@ export default function SkillsSection({ skills }: SkillsProps) {
   };
 
   return (
-    <section className="relative min-h-screen py-32 px-4 bg-surface overflow-hidden">
+    <section className="relative py-24 sm:py-32 px-5 sm:px-8 bg-surface overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <span className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-8 block text-center">{"// stack"}</span>
-        <div className="flex justify-center mb-32">
+        <div className="flex justify-center mb-16 sm:mb-24 lg:mb-32">
           <TextReveal>
-            <h2 className="text-5xl md:text-7xl font-display font-bold text-center tracking-tighter">
+            <h2 className="font-display font-bold text-center tracking-tighter text-[clamp(1.9rem,6vw,4.5rem)] leading-tight">
               SKILLS <span className="text-white/20">&</span> CAPABILITIES
             </h2>
           </TextReveal>
@@ -47,7 +47,7 @@ export default function SkillsSection({ skills }: SkillsProps) {
           />
 
           {skills.map((skillGroup, groupIdx) => (
-            <div key={groupIdx} className="bg-background p-8 group transition-colors duration-500 hover:bg-white/5 relative z-20">
+            <div key={groupIdx} className="bg-background p-6 sm:p-8 group transition-colors duration-500 hover:bg-white/5 relative z-20">
               <h3 className="font-mono text-foreground/30 text-xs uppercase tracking-widest mb-8 group-hover:text-accent transition-colors">
                 {skillGroup.category}
               </h3>

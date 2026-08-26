@@ -66,17 +66,32 @@ export default function RouterGraph() {
           />
         ))}
 
-      {/* Capability nodes. No centre dot — the name occupies the router. */}
+      {/* Router node */}
+      <circle cx={CENTER.x} cy={CENTER.y} r={9} fill="#ff9f1c" />
+      <circle cx={CENTER.x} cy={CENTER.y} r={19} fill="none" stroke="#ff9f1c" strokeWidth={1} opacity={0.35} />
+      <text
+        x={CENTER.x}
+        y={CENTER.y + 44}
+        textAnchor="middle"
+        fontFamily="var(--font-mono-face), monospace"
+        fontSize="19"
+        letterSpacing="0.14em"
+        fill="rgba(255,159,28,0.75)"
+      >
+        router
+      </text>
+
+      {/* Capability nodes */}
       {NODES.map((node) => (
         <g key={node.id}>
-          <circle cx={node.x} cy={node.y} r={4.5} fill="#2ec4b6" />
-          <circle cx={node.x} cy={node.y} r={11} fill="none" stroke="#2ec4b6" strokeWidth={1} opacity={0.3} />
+          <circle cx={node.x} cy={node.y} r={5.5} fill="#2ec4b6" />
+          <circle cx={node.x} cy={node.y} r={13} fill="none" stroke="#2ec4b6" strokeWidth={1} opacity={0.3} />
           <text
             x={node.x}
-            y={node.y + (node.y < CENTER.y ? -22 : 30)}
+            y={node.y + (node.y < CENTER.y ? -26 : 34)}
             textAnchor="middle"
             fontFamily="var(--font-mono-face), monospace"
-            fontSize="15"
+            fontSize="19"
             letterSpacing="0.08em"
             fill="rgba(236,235,229,0.5)"
           >

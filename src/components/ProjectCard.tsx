@@ -23,7 +23,7 @@ export default function ProjectCard({ project, featured }: { project: Project; f
       )}
 
       {/* Mono header strip */}
-      <div className="flex items-center gap-3 mb-4 font-mono text-[11px] text-foreground/40">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-4 font-mono text-[10px] sm:text-[11px] text-foreground/40">
         <span className="text-accent-secondary">▸</span>
         <span className="uppercase tracking-wider">{project.repo}</span>
         <span className="text-foreground/20">·</span>
@@ -51,8 +51,8 @@ export default function ProjectCard({ project, featured }: { project: Project; f
             className="object-cover transition-transform duration-1000 group-hover:scale-105"
           />
         ) : (
-          <div className="absolute inset-0 bg-surface flex items-center justify-center">
-            <span className="font-display text-6xl md:text-7xl text-foreground/[0.06] font-bold tracking-tighter uppercase select-none">
+          <div className="absolute inset-0 bg-surface flex items-center justify-center px-6 text-center">
+            <span className="font-display text-[clamp(1.75rem,7vw,4.5rem)] leading-[0.95] text-foreground/[0.07] font-bold tracking-tighter uppercase select-none">
               {project.title}
             </span>
           </div>
@@ -64,12 +64,12 @@ export default function ProjectCard({ project, featured }: { project: Project; f
         </div>
       </Link>
 
-      <div className="mt-12 flex flex-col md:flex-row justify-between items-start gap-8">
+      <div className="mt-6 sm:mt-10 flex flex-col md:flex-row justify-between items-start gap-6 md:gap-8">
         <div className="max-w-2xl">
-          <h3 className="text-4xl font-display mb-6 group-hover:translate-x-4 transition-transform duration-500">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-display mb-4 sm:mb-6 group-hover:translate-x-4 transition-transform duration-500">
             {project.title}
           </h3>
-          <p className="text-xl text-foreground/50 font-light leading-relaxed mb-8">{project.description}</p>
+          <p className="text-base sm:text-lg md:text-xl text-foreground/50 font-light leading-relaxed mb-6 sm:mb-8">{project.description}</p>
           <div className="flex flex-wrap gap-3 mb-8">
             {project.technologies.map((tag) => (
               <span

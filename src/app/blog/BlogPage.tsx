@@ -17,7 +17,7 @@ export default function BlogPage({ posts }: BlogProps) {
   return (
     <div className="relative min-h-screen bg-background">
       {/* Hero */}
-      <section className="relative pt-48 pb-24 overflow-hidden px-4">
+      <section className="relative pt-32 sm:pt-40 md:pt-48 pb-16 sm:pb-24 overflow-hidden px-5 sm:px-8">
         <div className="absolute inset-0 z-0 pointer-events-none">
           <motion.div
             animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.35, 0.15] }}
@@ -41,7 +41,7 @@ export default function BlogPage({ posts }: BlogProps) {
             </Link>
           </motion.div>
 
-          <div className="flex flex-col md:flex-row justify-between items-end gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
             <div>
               <motion.span
                 initial={{ opacity: 0 }}
@@ -52,7 +52,7 @@ export default function BlogPage({ posts }: BlogProps) {
                 {"// writing"}
               </motion.span>
               <TextReveal>
-                <h1 className="text-5xl md:text-8xl font-display font-medium leading-tight">
+                <h1 className="font-display font-medium leading-[0.95] text-[clamp(2.5rem,9vw,6rem)]">
                   THE <br />
                   <span className="text-white/20 italic">JOURNAL</span>
                 </h1>
@@ -62,7 +62,7 @@ export default function BlogPage({ posts }: BlogProps) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-right"
+              className="md:text-right"
             >
               <p className="text-white/50 font-light mb-4">
                 Explainers on transformers, sequence modelling and the maths under modern AI.
@@ -99,7 +99,7 @@ export default function BlogPage({ posts }: BlogProps) {
       </section>
 
       {/* Featured Article (first post, large) */}
-      <section className="pb-16 px-4">
+      <section className="pb-16 px-5 sm:px-8">
         <div className="max-w-7xl mx-auto">
           {posts.length > 0 && (
             <motion.a
@@ -202,16 +202,16 @@ export default function BlogPage({ posts }: BlogProps) {
       </section>
 
       {/* Footer CTA */}
-      <div className="py-20 border-t border-white/5 text-center">
-        <p className="text-white/20 text-xs uppercase tracking-widest mb-4">More on Medium</p>
+      <div className="py-16 sm:py-20 px-5 border-t border-white/5 text-center">
+        <p className="font-mono text-white/20 text-xs uppercase tracking-widest mb-4">More on Medium</p>
         <a
           href={MEDIUM_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex items-center gap-3 text-3xl md:text-4xl font-display text-white/70 hover:text-white transition-colors"
+          className="group inline-flex items-center gap-2 sm:gap-3 font-display text-white/70 hover:text-white transition-colors text-[clamp(1.25rem,5.5vw,2.25rem)] break-all"
         >
           medium.com/@amirunoel8
-          <ArrowUpRight size={32} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+          <ArrowUpRight className="shrink-0 w-5 h-5 sm:w-8 sm:h-8 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
         </a>
       </div>
     </div>

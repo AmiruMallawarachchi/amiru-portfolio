@@ -23,12 +23,12 @@ interface ExperienceEducationProps {
 
 export default function ExperienceEducation({ experience, education }: ExperienceEducationProps) {
   return (
-    <section className="relative min-h-screen py-32 px-4 bg-background border-t border-white/5">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-24">
+    <section className="relative py-24 sm:py-32 px-5 sm:px-8 bg-background border-t border-white/5">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 md:gap-24">
         {/* Experience Column */}
         <div>
           <span className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-12 block">01 / Experience</span>
-          <div className="space-y-16">
+          <div className="space-y-12 sm:space-y-16">
             {experience.map((item, idx) => (
               <motion.div
                 key={idx}
@@ -49,7 +49,7 @@ export default function ExperienceEducation({ experience, education }: Experienc
         {/* Education Column */}
         <div>
           <span className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-12 block">02 / Education</span>
-          <div className="space-y-16">
+          <div className="space-y-12 sm:space-y-16">
             {education.map((item, idx) => (
               <motion.div
                 key={idx}

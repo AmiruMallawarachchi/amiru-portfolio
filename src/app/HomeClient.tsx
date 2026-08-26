@@ -84,84 +84,96 @@ export default function HomeClient({
     <div className="relative">
       <ScrollProgress />
 
-      {/* Hero Section */}
+      {/* Hero — corner-anchored: identity top, statement centre, meta bar bottom.
+          The router graph owns the middle instead of a centred text stack. */}
       <section
         ref={heroRef}
         id="home"
-        className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 pt-32 pb-20"
+        className="relative min-h-[100svh] flex flex-col overflow-hidden px-5 sm:px-8 lg:px-12 pt-28 sm:pt-32 pb-8 sm:pb-10"
       >
-        {/* Router graph — signature visual. Hidden on small screens, where the
-            nodes fall outside the viewport and only add noise. */}
-        <div className="absolute inset-0 z-0 hidden md:flex items-center justify-center pointer-events-none">
-          <div className="w-[1200px] max-w-[110vw]">
+        {/* Signature visual, given its own column on the right so its node
+            labels never collide with the copy. Hidden on phones, where the
+            nodes fall outside the viewport and the labels go illegible. */}
+        <div className="absolute right-0 top-0 bottom-0 w-[52%] z-0 hidden md:flex items-center justify-center pointer-events-none">
+          <div className="w-full px-6">
             <RouterGraph />
           </div>
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_32%_at_50%_50%,var(--color-background)_35%,transparent_100%)]" />
+          <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-background to-transparent" />
         </div>
 
         <motion.div
           style={{ y, opacity }}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative z-10 text-center"
+          className="relative z-10 flex flex-col flex-1 min-w-0"
         >
-          <div className="flex justify-center mb-10">
-            <div className="px-5 py-2 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-sm flex items-center gap-3">
+          {/* Identity */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="flex flex-wrap items-start justify-between gap-x-8 gap-y-3 min-w-0"
+          >
+            <div className="min-w-0 md:max-w-[58%]">
+              <h1 className="font-display font-bold leading-[0.95] text-[clamp(1.5rem,6vw,4rem)] break-words">
+                {profile.name}{" "}
+                <span className="accent-gradient">{profile.last_name}</span>
+              </h1>
+              <p className="font-mono text-[9px] sm:text-[11px] uppercase tracking-[0.1em] sm:tracking-[0.22em] text-foreground/40 mt-3">
+                {profile.subtitle}
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2.5 shrink-0">
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-[0_0_10px_rgba(255,159,28,0.8)]" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.4em] font-bold text-accent">
-                {profile.title}
+              <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.2em] text-accent whitespace-nowrap">
+                Open to work
               </span>
             </div>
-          </div>
+          </motion.div>
 
-          <h1 className="text-6xl md:text-8xl font-display font-bold mb-6 leading-[0.95]">
-            {profile.name} <br />
-            <span className="accent-gradient">{profile.last_name}</span>
-          </h1>
-          <p className="font-mono text-[10px] md:text-xs uppercase tracking-[0.25em] text-foreground/35 mb-8">
-            {profile.subtitle}
-          </p>
-          <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto font-light leading-relaxed mb-12">
-            {profile.hero_line}
-          </p>
+          {/* Statement + meta bar, anchored to the bottom so the space between
+              them and the name reads as one deliberate gap, not two. */}
+          <div className="mt-auto pt-16 flex flex-col gap-8 sm:gap-10">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+              className="max-w-[20ch] sm:max-w-[24ch] md:max-w-[19ch] font-display font-medium leading-[1.12] tracking-tight text-[clamp(1.5rem,3.9vw,2.85rem)] [hyphens:none]"
+            >
+              {profile.hero_line}
+            </motion.p>
 
-          {/* CTA Row */}
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Magnetic>
-              <a
-                href="#projects"
-                className="glass px-7 py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-bold hover:bg-foreground hover:text-background transition-all duration-500 flex items-center gap-2"
-              >
-                <ArrowDown size={13} strokeWidth={2} />
-                View My Work
-              </a>
-            </Magnetic>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.35 }}
+              className="pt-5 sm:pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6"
+            >
+              <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-5 gap-y-3">
+                {ctaButtons.map((btn) => (
+                  <a
+                    key={btn.label}
+                    href={btn.href}
+                    {...(btn.download ? { download: true } : {})}
+                    {...(btn.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="flex items-center gap-2 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] sm:tracking-[0.18em] text-foreground/60 hover:text-accent transition-colors"
+                  >
+                    {btn.icon}
+                    {btn.label}
+                  </a>
+                ))}
+              </div>
 
-            {ctaButtons.map((btn) => (
-              <Magnetic key={btn.label} strength={0.3}>
+              <Magnetic strength={0.25}>
                 <a
-                  href={btn.href}
-                  {...(btn.download ? { download: true } : {})}
-                  {...(btn.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="flex items-center gap-2 px-5 py-3.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-foreground/60 hover:text-foreground hover:border-white/30 hover:bg-white/10 transition-all duration-300 text-xs uppercase tracking-[0.15em] font-semibold"
+                  href="#projects"
+                  className="group inline-flex items-center justify-center gap-3 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm px-6 py-3.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-bold hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-500"
                 >
-                  {btn.icon}
-                  {btn.label}
+                  Selected work
+                  <ArrowDown size={13} strokeWidth={2} className="group-hover:translate-y-0.5 transition-transform" />
                 </a>
               </Magnetic>
-            ))}
+            </motion.div>
           </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
-        >
-          <div className="w-px h-12 bg-gradient-to-b from-white/30 to-transparent" />
         </motion.div>
       </section>
 
@@ -183,7 +195,7 @@ export default function HomeClient({
         <ContactSection />
       </div>
 
-      <footer className="py-20 bg-background text-center border-t border-white/5">
+      <footer className="py-16 sm:py-20 px-5 bg-background text-center border-t border-white/5">
         <div className="flex justify-center mb-8">
           <Magnetic strength={0.3}>
             <button

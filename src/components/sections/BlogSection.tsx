@@ -13,13 +13,13 @@ interface BlogProps {
 
 export default function BlogSection({ posts }: BlogProps) {
   return (
-    <section className="py-32 bg-background">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+    <section className="py-24 sm:py-32 bg-background">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 sm:mb-24 gap-8">
           <div>
             <span className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-4 block">{"// insights"}</span>
             <TextReveal>
-              <h2 className="text-5xl md:text-7xl font-display font-medium leading-tight">
+              <h2 className="font-display font-medium leading-[0.95] text-[clamp(2.25rem,8vw,5rem)]">
                 FROM THE <br />
                 <span className="text-white/20 italic">JOURNAL</span>
               </h2>
@@ -92,7 +92,7 @@ export default function BlogSection({ posts }: BlogProps) {
         >
           <Link
             href="/blog"
-            className="group flex items-center gap-4 glass px-10 py-5 rounded-full hover:bg-white hover:text-black transition-all duration-500"
+            className="group flex items-center gap-4 glass px-7 sm:px-10 py-4 sm:py-5 rounded-full hover:bg-white hover:text-black transition-all duration-500"
           >
             <span className="text-xs uppercase tracking-[0.3em] font-bold">View All Articles</span>
             <ArrowUpRight

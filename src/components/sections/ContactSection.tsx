@@ -38,27 +38,27 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="py-32 bg-surface">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-24">
+    <section className="py-24 sm:py-32 bg-surface">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Info */}
           <div>
             <span className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-8 block">{"// contact"}</span>
             <TextReveal>
-              <h2 className="text-5xl md:text-8xl font-display font-medium mb-12 leading-tight">
+              <h2 className="font-display font-medium mb-10 sm:mb-12 leading-[0.95] text-[clamp(2.5rem,9vw,6rem)]">
                 LET&apos;S <br />
                 <span className="text-white/20 italic">CONNECT</span>
               </h2>
             </TextReveal>
             
-            <div className="space-y-12">
+            <div className="space-y-10 sm:space-y-12">
               <div className="flex items-start gap-6 group">
                 <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-background transition-all duration-500 shadow-[0_0_15px_rgba(255,159,28,0.2)]">
                   <Mail size={20} />
                 </div>
                 <div>
                   <span className="text-white/30 text-[10px] uppercase tracking-widest mb-1 block">Email</span>
-                  <a href={`mailto:${profile.email}`} className="text-xl font-light hover:text-white/60 transition-colors">
+                  <a href={`mailto:${profile.email}`} className="text-base sm:text-lg md:text-xl font-light hover:text-white/60 transition-colors break-all">
                     {profile.email}
                   </a>
                 </div>
@@ -70,7 +70,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <span className="text-white/30 text-[10px] uppercase tracking-widest mb-1 block">Phone</span>
-                  <a href={`tel:${profile.phone.replace(/\s/g, "")}`} className="text-xl font-light hover:text-white/60 transition-colors">
+                  <a href={`tel:${profile.phone.replace(/\s/g, "")}`} className="text-base sm:text-lg md:text-xl font-light hover:text-white/60 transition-colors break-all">
                     {profile.phone}
                   </a>
                 </div>
@@ -82,12 +82,12 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <span className="text-white/30 text-[10px] uppercase tracking-widest mb-1 block">Location</span>
-                  <p className="text-xl font-light">{profile.location}</p>
+                  <p className="text-base sm:text-lg md:text-xl font-light">{profile.location}</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-24 pt-12 border-t border-white/5 flex flex-wrap items-center gap-8">
+            <div className="mt-16 sm:mt-24 pt-10 sm:pt-12 border-t border-white/5 flex flex-wrap items-center gap-x-6 gap-y-4">
               <Magnetic strength={0.5}><a href={profile.github_url} target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white transition-colors font-medium uppercase tracking-[0.2em] text-[10px]">GitHub</a></Magnetic>
               <Magnetic strength={0.5}><a href={profile.linkedin_url} target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white transition-colors font-medium uppercase tracking-[0.2em] text-[10px]">LinkedIn</a></Magnetic>
               <Magnetic strength={0.5}><a href={profile.huggingface_url} target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white transition-colors font-medium uppercase tracking-[0.2em] text-[10px]">Hugging Face</a></Magnetic>
@@ -100,7 +100,7 @@ export default function ContactSection() {
           </div>
 
           {/* Form */}
-          <div className="glass p-12 rounded-[3rem]">
+          <div className="glass p-6 sm:p-9 md:p-12 rounded-3xl md:rounded-[3rem]">
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="space-y-2">
                 <label className="text-[10px] uppercase tracking-widest text-white/30 font-bold ml-1">Your Name</label>
@@ -108,8 +108,8 @@ export default function ContactSection() {
                   name="name"
                   type="text" 
                   required
-                  placeholder="Amiru Arachchi"
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-white/40 transition-colors text-white"
+                  placeholder="Your name"
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-base outline-none focus:border-white/40 transition-colors text-white"
                 />
               </div>
               <div className="space-y-2">
@@ -118,8 +118,8 @@ export default function ContactSection() {
                   name="email"
                   type="email" 
                   required
-                  placeholder="hello@example.com"
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-white/40 transition-colors text-white"
+                  placeholder="you@company.com"
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-base outline-none focus:border-white/40 transition-colors text-white"
                 />
               </div>
               <div className="space-y-2">
@@ -129,7 +129,7 @@ export default function ContactSection() {
                   required
                   rows={4}
                   placeholder="How can I help you?"
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-white/40 transition-colors text-white resize-none"
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 text-base outline-none focus:border-white/40 transition-colors text-white resize-none"
                 />
               </div>
               <button

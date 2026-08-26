@@ -27,7 +27,7 @@ export const profile = {
   title: "AI Engineer",
   subtitle: "LLM Applications · Agentic Systems · RAG · Model Training",
   hero_line:
-    "I fine-tuned and published five transformer models, then built the 14-agent platform that serves them.",
+    "Aspiring AI Engineer designing and building the systems that put models to work.",
   bio_intro: "I ship end-to-end: train the models, then build the systems that put them in front of people.",
   bio_description:
     "AI Engineer who trains and deploys transformer models, then wires them into production LLM applications. Comfortable owning an ambiguous problem from spec to production — and fast with coding agents like Claude Code, Cursor and Copilot.",

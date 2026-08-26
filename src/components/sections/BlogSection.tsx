@@ -5,15 +5,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, BookOpen } from "lucide-react";
 import TextReveal from "@/components/ui/TextReveal";
-import { pinnedPosts } from "@/lib/data";
+import { MEDIUM_URL, type Article } from "@/lib/content";
 
-export default function BlogSection() {
+interface BlogProps {
+  posts: Article[];
+}
+
+export default function BlogSection({ posts }: BlogProps) {
   return (
     <section className="py-32 bg-background">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
           <div>
-            <span className="text-white/30 uppercase tracking-widest text-xs mb-4 block">07 / Insights</span>
+            <span className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-4 block">{"// insights"}</span>
             <TextReveal>
               <h2 className="text-5xl md:text-7xl font-display font-medium leading-tight">
                 FROM THE <br />
@@ -22,7 +26,7 @@ export default function BlogSection() {
             </TextReveal>
           </div>
           <a
-            href="https://medium.com"
+            href={MEDIUM_URL}
             target="_blank"
             className="group flex items-center gap-3 text-white/40 hover:text-white transition-colors border-b border-white/10 pb-2"
           >
@@ -32,7 +36,7 @@ export default function BlogSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {pinnedPosts.map((post, idx) => (
+          {posts.map((post, idx) => (
             <motion.a
               key={idx}
               href={post.link}
@@ -59,9 +63,9 @@ export default function BlogSection() {
               </div>
               <div className="px-6 pb-8 flex flex-col flex-grow">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-white/30 text-[10px] uppercase tracking-widest">{post.date}</span>
+                  <span className="text-white/30 text-[10px] uppercase tracking-widest">{post.published_date}</span>
                   <div className="w-1 h-1 rounded-full bg-white/20" />
-                  <span className="text-white/30 text-[10px] uppercase tracking-widest">{post.readTime}</span>
+                  <span className="text-white/30 text-[10px] uppercase tracking-widest">{post.read_time}</span>
                 </div>
                 <h3 className="text-2xl font-display mb-4 group-hover:text-white transition-colors leading-snug">
                   {post.title}

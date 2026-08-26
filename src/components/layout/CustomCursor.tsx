@@ -15,8 +15,8 @@ export default function CustomCursor() {
   const [isPointer, setIsPointer] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const moveCursor = (e: MouseEvent) => {
+      setMounted(true);
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
 

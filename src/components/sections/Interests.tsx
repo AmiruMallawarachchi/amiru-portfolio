@@ -2,17 +2,16 @@
 
 import { motion } from "framer-motion";
 
-const interests = [
-  "Generative AI", "Neural Networks", "Human-Computer Interaction", 
-  "Sustainable Tech", "Digital Art", "Space Exploration", "Quantum Computing"
-];
+interface InterestsProps {
+  interests: string[];
+}
 
-export default function Interests() {
+export default function Interests({ interests }: InterestsProps) {
   return (
     <section className="relative py-32 px-4 bg-surface overflow-hidden">
       <div className="max-w-4xl mx-auto text-center">
-        <span className="text-white/30 uppercase tracking-widest text-xs mb-8 block">05 / Interests</span>
-        <h2 className="text-4xl md:text-5xl font-display mb-16 italic">"Passionate about the future"</h2>
+        <span className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-8 block">{"// interests"}</span>
+        <h2 className="text-4xl md:text-5xl font-display mb-16 italic">&ldquo;Passionate about the future&rdquo;</h2>
         
         <div className="flex flex-wrap justify-center gap-4">
           {interests.map((interest, idx) => (

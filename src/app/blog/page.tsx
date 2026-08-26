@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { articles } from "@/lib/content";
 import BlogPage from "./BlogPage";
 
 export const metadata: Metadata = {
-  title: "Blog | Amiru Mallawa Arachchi",
-  description: "Thoughts on AI engineering, full-stack development, and building intelligent systems — by Amiru Mallawa Arachchi.",
+  title: "Writing | Amiru Mallawarachchi",
+  description: "Notes on transformers, agentic systems and applied AI engineering.",
 };
 
 export default function Page() {
-  return <BlogPage />;
+  return <BlogPage posts={articles} />;
 }

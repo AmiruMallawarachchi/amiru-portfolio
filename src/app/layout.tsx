@@ -1,23 +1,29 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Archivo, Bricolage_Grotesque, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/layout/CustomCursor";
 import Navigation from "@/components/layout/Navigation";
 import SmoothScrollProvider from "@/components/layout/SmoothScrollProvider";
 
-const inter = Inter({
+const body = Archivo({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-body",
 });
 
-const outfit = Outfit({
+const display = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-display-face",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono-face",
 });
 
 export const metadata: Metadata = {
-  title: "AMIRU MALLAWA ARACHCHI | Gen AI Engineer",
-  description: "Portfolio of Amiru Mallawa Arachchi - Software Engineering Student & Gen AI Engineer",
+  title: "Amiru Mallawarachchi | AI Engineer",
+  description:
+    "AI Engineer building LLM applications, agentic systems and RAG. Fine-tuned and published five transformer models to Hugging Face, then built the 14-agent platform that serves them.",
 };
 
 export default function RootLayout({
@@ -26,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
+    <html lang="en" className={`${body.variable} ${display.variable} ${mono.variable}`}>
       <body className="antialiased font-sans">
         <SmoothScrollProvider>
           <div className="noise-bg" />

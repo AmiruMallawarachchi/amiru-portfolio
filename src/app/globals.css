@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-outfit);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display-face);
+  --font-mono: var(--font-mono-face);
 
-  --color-background: #050505;
-  --color-foreground: #ffffff;
-  
-  --color-accent: #6366f1;
-  --color-accent-secondary: #a855f7;
-  --color-accent-muted: rgba(99, 102, 241, 0.2);
-  --color-surface: #0a0a0a;
-  --color-border: rgba(255, 255, 255, 0.05);
+  --color-background: #08090b;
+  --color-foreground: #ecebe5;
+
+  --color-accent: #ff9f1c;
+  --color-accent-secondary: #2ec4b6;
+  --color-accent-muted: rgba(255, 159, 28, 0.18);
+  --color-surface: #0d0f12;
+  --color-border: rgba(236, 235, 229, 0.08);
 
   --animation-scroll: scroll 1s linear infinite;
   @keyframes scroll {
@@ -21,23 +22,38 @@
 }
 
 :root {
-  --background: #050505;
-  --foreground: #ffffff;
+  --background: #08090b;
+  --foreground: #ecebe5;
 }
 
 @layer base {
   * {
-    @apply border-border outline-none;
-    cursor: none; /* We'll use a custom cursor */
+    @apply border-border;
+  }
+
+  @media (pointer: fine) {
+    * {
+      cursor: none;
+    }
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased selection:bg-white selection:text-black;
+    @apply bg-background text-foreground font-sans antialiased selection:bg-accent selection:text-background;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 }
 
@@ -45,19 +61,19 @@
   .glass {
     @apply bg-white/5 backdrop-blur-md border border-white/10;
   }
-  
+
   .text-glow {
-    text-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    text-shadow: 0 0 20px rgba(255, 159, 28, 0.35);
   }
 
   .accent-gradient {
-    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    background: linear-gradient(135deg, #ff9f1c 0%, #2ec4b6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .noise-bg {
-    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     opacity: 0.05;
     pointer-events: none;
     position: fixed;
@@ -66,11 +82,22 @@
   }
 
   .grid-bg {
-    background-image: 
-      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-image:
+      linear-gradient(to right, rgba(236,235,229,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(236,235,229,0.05) 1px, transparent 1px);
     background-size: 40px 40px;
     pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
@@ -80,14 +107,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #08090b;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #222;
+  background: #2a2a28;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #333;
+  background: #3a3a36;
 }

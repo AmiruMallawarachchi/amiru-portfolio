@@ -1,4 +1,4 @@
-// All portfolio content lives here. Edit this file and push to update the site.
+// Portfolio content lives here so the site can be kept in sync with the CV and GitHub.
 
 export type Project = {
   slug: string;
@@ -18,22 +18,23 @@ export type Project = {
   year: string;
   language: string;
   featured?: boolean;
+  visual?: "mindlens" | "travel" | "solvix" | "data" | "security" | "mobile" | "web" | "learning";
 };
 
 export const profile = {
   name: "AMIRU",
   last_name: "MALLAWARACHCHI",
   full_name: "Amiru Mallawarachchi",
-  title: "AI Engineer",
-  subtitle: "LLM Applications · Agentic Systems · RAG · Model Training",
+  title: "Software & Gen AI Engineer",
+  subtitle: "SOFTWARE ENGINEERING · GEN AI · PRODUCTION SYSTEMS",
   hero_line:
-    "Aspiring AI Engineer designing and building the systems that put models to work.",
-  bio_intro: "I ship end-to-end: train the models, then build the systems that put them in front of people.",
+    "Aspiring Gen AI Engineer designing and building production software that makes intelligence useful.",
+  bio_intro: "Software Engineer designing and building the systems that take AI from idea to production.",
   bio_description:
-    "AI Engineer who trains and deploys transformer models, then wires them into production LLM applications. Comfortable owning an ambiguous problem from spec to production — and fast with coding agents like Claude Code, Cursor and Copilot.",
-  status: "BSc (Hons) Software Engineering — final year",
+    "I am a final-year Software Engineering student focused on Gen AI: reliable backends, agentic workflows, retrieval systems, and interfaces that people can actually use. I chose software over the finance path my family expected because I was drawn to the future I saw in sci-fi - from Iron Man's workshop to Wakanda's technology - and I am turning that curiosity into disciplined engineering: clear architecture, safe model behavior, and products that hold up beyond the demo.",
+  status: "BSc (Hons) Software Engineering - graduating Feb 2027",
   location: "Moratuwa, Sri Lanka",
-  passions: "Agentic systems that hold up in production",
+  passions: "Software and AI systems with a human edge",
   hero_image: "/amiru.jpg",
   cv_url: "/cv.pdf",
   github_url: "https://github.com/AmiruMallawarachchi",
@@ -46,94 +47,32 @@ export const profile = {
 export type Profile = typeof profile;
 
 export const skills = [
-  {
-    category: "LLM Applications",
-    items: [
-      "Anthropic / OpenAI / Groq APIs",
-      "Prompt & context engineering",
-      "Tool & function calling",
-      "Structured JSON outputs",
-      "Model routing",
-      "Guardrails & PII protection",
-      "LLM evaluation",
-    ],
-  },
-  {
-    category: "Agentic Systems",
-    items: [
-      "Supervisor / worker patterns",
-      "Shared-state orchestration",
-      "Custom async pipelines",
-      "LangGraph",
-      "LangChain",
-      "LlamaIndex",
-      "MCP tool servers",
-    ],
-  },
-  {
-    category: "ML & Model Training",
-    items: [
-      "PyTorch",
-      "Hugging Face Transformers",
-      "LoRA / QLoRA / PEFT",
-      "Cross-encoder rerankers",
-      "scikit-learn",
-      "XGBoost",
-      "Threshold calibration",
-    ],
-  },
-  {
-    category: "RAG & Data",
-    items: [
-      "ChromaDB",
-      "Pinecone",
-      "FAISS",
-      "Semantic chunking",
-      "MMR retrieval",
-      "Citation grounding",
-      "MongoDB",
-    ],
-  },
-  {
-    category: "Backend & Engineering",
-    items: [
-      "Python (async / asyncio)",
-      "FastAPI",
-      "Pydantic",
-      "SSE streaming",
-      "pytest",
-      "Next.js 16 / React 19",
-      "TypeScript",
-    ],
-  },
-  {
-    category: "Deployment & Tooling",
-    items: [
-      "Docker",
-      "GitHub Actions",
-      "Langfuse",
-      "Vercel",
-      "MongoDB Atlas",
-      "Cloudflare Tunnel",
-      "Claude Code / Cursor",
-    ],
-  },
+  { category: "Languages", items: ["Java 17", "Python", "TypeScript / JavaScript", "SQL", "PHP"] },
+  { category: "Software Engineering", items: ["Spring Boot", "FastAPI (async)", "REST APIs", "MVC architecture", "JPA / Hibernate", "JWT / RBAC", "Flyway"] },
+  { category: "AI & LLM Engineering", items: ["LangGraph", "LangChain", "MCP / FastMCP", "RAG", "Groq API", "Prompt & agent design", "Langfuse tracing"] },
+  { category: "Data & Model Work", items: ["PyTorch", "Hugging Face Transformers", "Pinecone", "MongoDB", "PostgreSQL", "MySQL", "XGBoost"] },
+  { category: "Frontend & Product", items: ["Next.js", "React", "Tailwind CSS", "Streamlit", "Gradio", "SSE / WebSockets"] },
+  { category: "Delivery & Quality", items: ["Docker", "GitHub Actions", "Vercel", "Render", "pytest", "CI/CD", "Data privacy"] },
 ];
 
 export const experience = [
   {
-    title: "Web Development Intern",
-    company: "Syntecxhub (Remote)",
-    period: "Jan 2026 – Feb 2026",
-    description:
-      "Built and shipped React / MERN features against an existing codebase, working remotely to ticket-level specs and code review.",
+    title: "Batch Representative",
+    company: "ICBT Campus - HND in Software Engineering, Batch 124",
+    period: "Apr 2023 - Present",
+    description: "Represent the batch, coordinate academic activities and events, communicate student feedback to lecturers, and help resolve day-to-day issues with clarity and accountability.",
+  },
+  {
+    title: "Member",
+    company: "ICBT IEEE Student Branch",
+    period: "Feb 2023 - Oct 2026",
+    description: "Engaged with the student engineering community through technical knowledge sharing, professional development, and collaborative software engineering activities.",
   },
   {
     title: "Customer Service Executive",
     company: "Bellvantage (Pvt) Ltd, Colombo",
-    period: "Jul 2023 – Feb 2024",
-    description:
-      "Supported Sampath Bank's financial recovery operations under banking compliance and data-privacy rules, handling 60–80+ calls daily and analysing account patterns to support recovery strategy. Where I first learned to handle sensitive personal data carefully.",
+    period: "Jul 2023 - Feb 2024",
+    description: "Supported Sampath Bank credit-card recovery operations with 100-150 outbound calls a day, careful CRM records, banking compliance, and data-privacy responsibilities.",
   },
 ];
 
@@ -141,14 +80,20 @@ export const education = [
   {
     degree: "BSc (Hons) Software Engineering",
     institution: "Cardiff Metropolitan University (ICBT Campus, Colombo)",
-    period: "Expected Dec 2026",
-    description: "Final year, focused on modern software architectures and applied AI.",
+    period: "Expected Feb 2027",
+    description: "Final-year software engineering student building production-shaped systems across backend engineering and applied AI.",
   },
   {
     degree: "Higher National Diploma in Computing (Merit)",
     institution: "ICBT Campus, Colombo",
     period: "Completed",
-    description: "Foundation in software engineering, databases and systems design.",
+    description: "Foundation in software engineering, databases, systems design, and application development.",
+  },
+  {
+    degree: "AI Engineer Bootcamp 2.0 - Gen AI Engineer",
+    institution: "STEMLink",
+    period: "Feb 2026 - Jul 2026",
+    description: "Hands-on training in LangChain, LangGraph, RAG, Hugging Face Transformers, prompt engineering, FastAPI, and production-minded AI systems. Outstanding distinction.",
   },
   {
     degree: "GCE Advanced Level",
@@ -159,198 +104,135 @@ export const education = [
 ];
 
 export const certifications = [
-  "Gen AI Engineer — STEMLink AI Engineer Bootcamp 2.0 (Aug 2026)",
-  "Introduction to LangChain — LangChain Academy (Apr 2026)",
-  "Python (Basic) — HackerRank (Apr 2026)",
-  "Intro to Machine Learning — Kaggle (2026)",
-  "Team Leader, EXITO'26 Exhibition — ICBT Campus (Jul 2026)",
+  "Gen AI Engineer - STEMLink AI Engineer Bootcamp 2.0 (Outstanding distinction)",
+  "Introduction to LangChain - LangChain Academy (Apr 2026)",
+  "Team Leader, EXITO'26 Exhibition - ICBT Campus (Jul 2026)",
 ];
 
 export const interests = [
-  "Agentic Systems",
-  "Transformer Fine-Tuning",
-  "Retrieval & Grounding",
-  "AI Safety & Guardrails",
-  "Evaluation",
-  "Human-Computer Interaction",
-  "Technical Writing",
+  "Agentic systems",
+  "Production software",
+  "Transformer fine-tuning",
+  "Retrieval and grounding",
+  "AI safety and evaluation",
+  "Human-computer interaction",
+  "Sci-fi technology",
+  "Workout lifestyle",
+  "Video games",
 ];
 
 const GH = "https://github.com/AmiruMallawarachchi";
 
 export const projects: Project[] = [
   {
-    slug: "mindlens",
-    title: "MindLens",
-    repo: "mindlens",
-    description:
-      "A 14-agent AI wellbeing platform — five transformer models I trained, served by a pipeline I built without an agent framework.",
-    body: "Sole architect and engineer. MindLens is a 14-agent async orchestration pipeline written in plain Python asyncio over a shared state object — eight layers and a seven-step turn covering safety gating, signal extraction, retrieval, planning, generation, post-checks and persistence, with agents fanned out concurrently and merged before generation. Around 11,900 lines of Python and 18,000 of TypeScript across 180 commits, with 730 passing pytest tests, pre-commit hooks and CI, built to Sri Lanka PDPA 2022 data-protection requirements.",
-    highlights: [
-      "Fine-tuned and published five transformer models to Hugging Face — DistilBERT crisis classifier, RoBERTa emotion classifier, MentalBERT multi-label classifier, RoBERTa cognitive-distortion classifier and a cross-encoder RAG reranker. Best model: macro F1 0.815, average AUC 0.938.",
-      "Curated eight public datasets from 539,437 raw to 377,423 cleaned examples, handling class imbalance up to 172×.",
-      "Built a two-stage crisis gate — ~45 deterministic regex patterns, then the DistilBERT classifier at a calibrated 0.45 threshold. Iterated to v3, which caught 5/5 crisis probes at every threshold from 0.45 to 0.9 with 0/6 false positives and a +0.998 separation margin, up from +0.06 in v1.",
-      "Grounded RAG over ChromaDB: a 60-entry cited corpus chunked to ~67 passages, MMR retrieval with recency boosting, then cross-encoder reranking to k=5. Reranker trained on 5,069 mined pairs and evaluated with NDCG@3, MRR and P@3.",
-      "Async FastAPI service with dual-tier Groq model routing, two-layer memory, APScheduler check-ins, MongoDB Atlas persistence and SSE streaming to a Next.js 16 / React 19 frontend.",
-    ],
-    technologies: ["Python", "FastAPI", "PyTorch", "Transformers", "ChromaDB", "MongoDB", "Groq", "Next.js", "Docker"],
-    github_url: `${GH}/mindlens`,
-    demo_url: "https://mindlens-theta.vercel.app",
-    hf_url: "https://huggingface.co/AmiruMallawarachchi",
-    thumbnail: "/projects/mindlens.png",
-    year: "2026",
-    language: "Python",
-    featured: true,
+    slug: "mindlens", title: "MindLens", repo: "mindlens",
+    description: "A privacy-conscious multi-agent wellbeing platform with bounded LangGraph orchestration, deterministic crisis protection, and hosted retrieval.",
+    body: "MindLens is a full-stack AI system for reflective mental-health support. I built the workflow around explicit nodes and conditional edges so safety, assessment, memory recall, retrieval, specialist generation, review, and persistence remain inspectable and bounded. The hosted version combines FastAPI, Next.js, Groq, Pinecone, MongoDB Atlas, and metadata-only Langfuse tracing.",
+    highlights: ["Deterministic crisis screening exits before any model or retrieval call.", "PII is anonymized before external model calls; personal conversations never enter Pinecone.", "Normal turns are bounded to a maximum of three Groq calls, with graceful degradation when providers fail.", "Stable REST and WebSocket contracts connect the FastAPI backend to the Next.js frontend."],
+    technologies: ["Python", "FastAPI", "LangGraph", "Groq", "Pinecone", "MongoDB", "Next.js"], github_url: `${GH}/mindlens`, demo_url: "https://mindlens-theta.vercel.app", hf_url: "https://huggingface.co/AmiruMallawarachchi", thumbnail: "/projects/mindlens.png", year: "2026", language: "Python", featured: true, visual: "mindlens",
   },
   {
-    slug: "multi-agent-travel-planner",
-    title: "TripWeaver",
-    repo: "multi-agent-travel-planner",
-    description:
-      "MCP-based multi-agent travel planner over live Amadeus inventory. Capstone for the STEMLink AI Engineer Bootcamp 2.0.",
-    body: "TripWeaver turns one free-text trip request into a costed, day-by-day plan. A supervisor/worker agent graph in LangGraph coordinates specialist flight, hotel and itinerary agents through shared state, and live Amadeus flight and hotel inventory reaches those agents as tools through two FastMCP servers — real Model Context Protocol tool access rather than hard-coded API calls, so tools can be swapped or added without touching agent logic.",
-    highlights: [
-      "Supervisor/worker agent graph in LangGraph with specialist flight, hotel and itinerary agents coordinating through shared state.",
-      "Two FastMCP servers expose live Amadeus inventory as MCP tools, keeping tool wiring separate from agent logic.",
-      "Streaming Gradio product over a FastAPI service layer, with token streaming and graceful degradation when an upstream provider returns no inventory.",
-      "Built through the STEMLink AI Engineer Bootcamp 2.0 and assessed by viva — certified as a Gen AI Engineer.",
-    ],
-    technologies: ["FastAPI", "LangGraph", "FastMCP", "Amadeus API", "Gradio", "Python"],
-    github_url: `${GH}/multi-agent-travel-planner`,
-    demo_url: "https://multi-agent-travel-planner-jet.vercel.app",
-    thumbnail: "/projects/multi-agent-travel-planner.png",
-    year: "2026",
-    language: "Python",
-    featured: true,
+    slug: "multi-agent-travel-planner", title: "TripWeaver", repo: "multi-agent-travel-planner",
+    description: "An intent-routed, MCP-based travel planner that streams live flight, hotel, weather, currency, and location research into one plan.",
+    body: "TripWeaver turns a free-text travel request into a structured itinerary through a Next.js interface and a FastAPI + LangGraph backend. Each capability is isolated behind its own MCP service, so specialist agents receive only the tools they are allowed to call. Account-scoped chats, structured results, and graceful provider degradation make it feel like a product rather than a prompt demo.",
+    highlights: ["A LangGraph router sends requests to one of seven specialist agents.", "Six MCP services isolate flight, hotel, itinerary, weather, currency, and location tools.", "Streaming responses, Supabase authentication, plan folders, and structured travel results.", "Offline tests and CI support a deployable Vercel + Render workflow."],
+    technologies: ["Next.js", "FastAPI", "LangGraph", "FastMCP", "Supabase", "Python"], github_url: `${GH}/multi-agent-travel-planner`, demo_url: "https://multi-agent-travel-planner-jet.vercel.app", thumbnail: "/projects/multi-agent-travel-planner.png", year: "2026", language: "Python", featured: true, visual: "travel",
   },
   {
-    slug: "election-system",
-    title: "Automated Presidential Election System",
-    repo: "election-system",
-    description:
-      "End-to-end Sri Lankan election platform. Led a five-person team; selected from Batch 124 for the EXITO'26 industry exhibition.",
-    body: "A complete election workflow across three role-based dashboards in English, Sinhala and Tamil: voter registration, Grama Niladhari officer verification, admin-controlled election scheduling, ranked-preference voting, live turnout monitoring and result publication. I led a five-member team — splitting scope, reviewing merges and leading the industry presentation — and owned architecture and delivery.",
-    highlights: [
-      "Selected from the whole of Batch 124 for the EXITO'26 Exhibition at ICBT Campus, presented to lecturers, senior students and IT industry professionals.",
-      "Owned MVC structure, MySQL schema and migrations across a five-developer team.",
-      "Security layer with CSRF tokens, prepared statements, password hashing, OTP + PIN authentication, session regeneration, failed-login tracking and one-vote-per-voter enforcement.",
-    ],
-    technologies: ["PHP 8", "MySQL 8", "Bootstrap", "Docker", "JavaScript"],
-    github_url: `${GH}/election-system`,
-    demo_url: "https://election-system-pearl.vercel.app",
-    thumbnail: "/projects/election-system.png",
-    year: "2026",
-    language: "PHP",
-    featured: true,
+    slug: "solvix", title: "Solvix", repo: "solvix",
+    description: "An enterprise ticketing and operations platform that turns customer requests into clear, accountable work.",
+    body: "Solvix is the software-engineering anchor of the portfolio: a secure ticketing platform with a Java 17 and Spring Boot 3 backend, a Next.js frontend, PostgreSQL persistence, Flyway migrations, Docker, and JWT-based role access. It models a six-stage ticket lifecycle in the domain layer and ships as a live Vercel, Render, and Neon deployment.",
+    highlights: ["JWT authentication, BCrypt password hashing, and role-based access control for customers and support agents.", "Six-stage ticket lifecycle with domain-enforced transitions and complete activity history.", "Flyway migrations, GitHub Actions CI, Docker, and a recruiter-friendly synthetic demo environment."],
+    technologies: ["Java 17", "Spring Boot 3", "PostgreSQL", "Next.js", "Docker", "JWT"], github_url: `${GH}/solvix`, demo_url: "https://solvix-amiru.vercel.app", year: "2026", language: "Java", featured: true, visual: "solvix",
   },
   {
-    slug: "nlp-suite",
-    title: "Multi-Task NLP Service",
-    repo: "nlp-suite-project",
-    description:
-      "A five-pipeline Hugging Face inference API behind a typed FastAPI layer.",
-    body: "One service exposing summarisation, sentiment, zero-shot classification, named-entity recognition and extractive question answering, each behind Pydantic schemas so callers get a typed contract rather than raw pipeline output.",
-    technologies: ["Python", "FastAPI", "Hugging Face", "Pydantic", "Streamlit"],
-    github_url: `${GH}/nlp-suite-project`,
-    demo_url: "https://nlp-suite-project.vercel.app",
-    year: "2026",
-    language: "Python",
+    slug: "nlp-suite", title: "Multi-Task NLP Intelligence Suite", repo: "nlp-suite-project",
+    description: "A unified FastAPI and Next.js product exposing five Hugging Face NLP pipelines with model confidence and live analysis.", body: "The suite makes summarisation, sentiment analysis, zero-shot classification, named-entity recognition, and extractive question answering available through one typed product interface and a Hugging Face-backed service.", technologies: ["Python", "FastAPI", "Hugging Face", "Next.js", "Pydantic"], github_url: `${GH}/nlp-suite-project`, demo_url: "https://nlp-suite-project.vercel.app", year: "2026", language: "Python", visual: "data",
   },
   {
-    slug: "stellar-prediction-api",
-    title: "Stellar Classification",
-    repo: "stellar-prediction-api",
-    description:
-      "Multi-class GALAXY / STAR / QSO classification — Kaggle Playground Series S6E6, 0.95458 leaderboard score.",
-    body: "Feature engineering and XGBoost hyperparameter tuning to a 0.95458 leaderboard score on Kaggle Playground Series S6E6, served through a FastAPI endpoint with a Streamlit front-end for interactive exploration.",
-    technologies: ["Python", "XGBoost", "LightGBM", "FastAPI", "Streamlit"],
-    github_url: `${GH}/stellar-prediction-api`,
-    year: "2026",
-    language: "Python",
+    slug: "stellar-prediction-api", title: "Stellar Object Classification", repo: "stellar-prediction-api",
+    description: "A FastAPI and Streamlit classifier for GALAXY, QSO, and STAR observations using a tuned XGBoost-LightGBM ensemble.", body: "Feature engineering turns SDSS-style photometry into colour indices, redshift transforms, magnitude statistics, and interaction features before the tuned ensemble predicts the object class.", technologies: ["Python", "LightGBM", "XGBoost", "FastAPI", "Streamlit"], github_url: `${GH}/stellar-prediction-api`, year: "2026", language: "Python", visual: "data",
   },
   {
-    slug: "ocean-view-resort",
-    title: "Ocean View Resort",
-    repo: "OceanViewResort_Reservation_System",
-    description: "Enterprise resort reservation and management system on Java Servlets.",
-    body: "Java Servlet–based resort reservation and management system with dashboards, billing, discounts, reporting and a MySQL backend.",
-    technologies: ["Java", "Servlets", "JSP", "MySQL", "Apache Tomcat"],
-    github_url: `${GH}/OceanViewResort_Reservation_System`,
-    year: "2025",
-    language: "Java",
+    slug: "election-system", title: "Automated Presidential Election System", repo: "election-system",
+    description: "A multilingual Sri Lankan election workflow with voter registration, GN verification, secure voting, and result publication.", body: "A five-person team project selected from Batch 124 for ICBT's EXITO'26 industry exhibition. I led architecture and delivery across role-based dashboards, election scheduling, ranked-preference voting, live turnout, and security controls.", highlights: ["Selected for EXITO'26 and presented to industry professionals.", "CSRF protection, OTP + PIN authentication, password hashing, and one-vote-per-voter enforcement."], technologies: ["PHP 8", "MySQL 8", "Bootstrap", "Docker", "JavaScript"], github_url: `${GH}/election-system`, demo_url: "https://election-system-pearl.vercel.app", thumbnail: "/projects/election-system.png", year: "2026", language: "PHP", visual: "security",
   },
   {
-    slug: "luxevista-mobile",
-    title: "LuxeVista Resort Mobile",
-    repo: "luxevistaresortFinal",
-    description: "Native Android hotel booking app with Firebase authentication.",
-    body: "Native Java Android application for resort room booking, using Firebase for real-time updates and authentication with SQLite for local persistence.",
-    technologies: ["Java", "Android Studio", "Firebase", "SQLite"],
-    github_url: `${GH}/luxevistaresortFinal`,
-    year: "2025",
-    language: "Java",
+    slug: "ocean-view-resort", title: "OceanView Resort", repo: "OceanViewResort_Reservation_System",
+    description: "A Java Servlet resort operations system with reservations, billing, discounts, dashboards, reporting, and event notifications.", body: "A Maven WAR application built around Java Servlets, JSP, MySQL, HikariCP, Kafka notifications, OpenPDF, Apache POI, JUnit, Mockito, and JaCoCo.", technologies: ["Java", "Servlets", "JSP", "MySQL", "Kafka"], github_url: `${GH}/OceanViewResort_Reservation_System`, year: "2025", language: "Java", visual: "web",
   },
   {
-    slug: "gadgethub-api",
-    title: "GadgetHub",
-    repo: "GadgetHub",
-    description: "ASP.NET Core platform helping customers compare distributors when buying gadgets.",
-    body: "An ASP.NET Core solution that helps customers choose the best distributor for a given gadget, with a modular architecture, authentication, a product catalog manager and an order processing pipeline.",
-    technologies: ["C#", "ASP.NET Core", "Firebase", "SQLite"],
-    github_url: `${GH}/GadgetHub`,
-    year: "2025",
-    language: "C#",
+    slug: "luxevista-mobile", title: "LuxeVista Resort Mobile", repo: "luxevistaresortFinal",
+    description: "A native Android resort booking application with Firebase authentication and SQLite persistence.", body: "A Java Android application for browsing and booking resort rooms, combining Firebase authentication and real-time updates with local SQLite persistence.", technologies: ["Java", "Android", "Firebase", "SQLite"], github_url: `${GH}/luxevistaresortFinal`, year: "2025", language: "Java", visual: "mobile",
   },
   {
-    slug: "fitzone",
-    title: "FitZone",
-    repo: "FitZone",
-    description: "Gym management system for members, trainers and admins.",
-    body: "A PHP, MySQL and Bootstrap web platform enabling profile viewing, workout scheduling, live chat and admin management across member, trainer and admin roles.",
-    technologies: ["PHP", "MySQL", "Bootstrap"],
-    github_url: `${GH}/FitZone`,
-    year: "2025",
-    language: "PHP",
+    slug: "gadgethub", title: "GadgetHub", repo: "GadgetHub",
+    description: "An ASP.NET platform helping customers compare distributors when buying gadgets.", body: "A modular C# solution with authentication, product catalogue management, distributor comparison, and order processing.", technologies: ["C#", "ASP.NET Core", "Firebase", "SQLite"], github_url: `${GH}/GadgetHub`, year: "2025", language: "C#", visual: "web",
+  },
+  {
+    slug: "fitzone", title: "FitZone", repo: "FitZone",
+    description: "A gym management platform for members, trainers, schedules, live chat, and admin operations.", body: "A PHP, MySQL, and Bootstrap web application with separate member, trainer, and admin workflows.", technologies: ["PHP", "MySQL", "Bootstrap"], github_url: `${GH}/FitZone`, year: "2025", language: "PHP", visual: "web",
+  },
+  {
+    slug: "syntecxhub-expense-tracker", title: "Expense Tracker", repo: "Syntecxhub_-Expense_Tracker",
+    description: "A MERN expense tracker for recording income, expenses, and personal financial summaries.", body: "A remote internship build using MongoDB, Express, React, and Node.js to track income and expenses in a practical full-stack workflow.", technologies: ["MongoDB", "Express", "React", "Node.js"], github_url: `${GH}/Syntecxhub_-Expense_Tracker`, year: "2026", language: "JavaScript", visual: "data",
+  },
+  {
+    slug: "mortgage-calculator", title: "Mortgage Calculator", repo: "mortgageCalculator",
+    description: "A Java console application calculating monthly home-loan payments from principal, rate, and duration.", body: "A focused Java project applying the standard mortgage formula with clear input handling and formatted output.", technologies: ["Java", "Algorithms", "CLI"], github_url: `${GH}/mortgageCalculator`, year: "2026", language: "Java", visual: "learning",
+  },
+  {
+    slug: "election-legacy", title: "Election System - Legacy Prototype", repo: "Election",
+    description: "An earlier secure voting prototype with preference counting, multi-factor login, and audit-minded workflows.", body: "The earlier version of the election project explored PHP, MySQL, PHPMailer, CSRF protection, rate limiting, session hardening, and preference-based vote counting.", technologies: ["PHP", "MySQL", "Bootstrap", "Security"], github_url: `${GH}/Election`, year: "2025", language: "PHP", visual: "security",
+  },
+  {
+    slug: "transformer-nextjs", title: "Transformer Notes", repo: "transformer-nextjs",
+    description: "A Next.js learning build for explaining transformer concepts through an interactive web experience.", body: "A small product experiment around translating transformer architecture ideas into a clear browser-based learning interface.", technologies: ["Next.js", "TypeScript", "Transformers"], github_url: `${GH}/transformer-nextjs`, demo_url: "https://transformer-nextjs.vercel.app", year: "2026", language: "TypeScript", visual: "learning",
+  },
+  {
+    slug: "amiru-ai-nexus", title: "Amiru AI Nexus", repo: "amiru-ai-nexus-1.0.0",
+    description: "An exploratory AI product interface focused on presenting intelligent tools through a polished web experience.", body: "A visual product experiment from the early Amiru AI Lab work, useful as a record of the progression from interface ideas to production-shaped systems.", technologies: ["React", "TypeScript", "AI UX"], github_url: `${GH}/amiru-ai-nexus-1.0.0`, demo_url: "https://amiru-ai-nexus-100.vercel.app", year: "2026", language: "TypeScript", visual: "learning",
+  },
+  {
+    slug: "enterprise-iq", title: "Enterprise IQ", repo: "enterprise-iq",
+    description: "An experimental enterprise product repository exploring structured software and AI workflows.", body: "A work-in-progress repository kept in the collection as part of the broader Amiru AI Lab experimentation archive.", technologies: ["Software engineering", "AI systems"], github_url: `${GH}/enterprise-iq`, year: "2026", language: "Mixed", visual: "learning",
+  },
+  {
+    slug: "multi-task-nlp-notebook", title: "Multi-Task NLP Notebook", repo: "Multi-Task-NLP-Intelligence-Suite",
+    description: "The original notebook exploration behind the production-oriented Multi-Task NLP Intelligence Suite.", body: "A Google Colab notebook repository documenting the earlier experimentation phase of the NLP suite.", technologies: ["Python", "NLP", "Jupyter"], github_url: `${GH}/Multi-Task-NLP-Intelligence-Suite`, year: "2026", language: "Notebook", visual: "data",
+  },
+  {
+    slug: "gen-ai-portfolio", title: "Gen AI Portfolio - Earlier Build", repo: "gen-ai-portfolio",
+    description: "An earlier portfolio scaffold from the progression toward the current portfolio system.", body: "An archived Next.js portfolio experiment retained to show the evolution of the portfolio and product presentation work.", technologies: ["Next.js", "TypeScript", "Tailwind CSS"], github_url: `${GH}/gen-ai-portfolio`, year: "2026", language: "TypeScript", visual: "learning",
+  },
+  {
+    slug: "amiru-portfolio-legacy", title: "Amiru Portfolio - Earlier Build", repo: "amiru",
+    description: "An earlier AI engineer portfolio exploration with animation, 3D, and Supabase ideas.", body: "An archived portfolio repository exploring a different visual direction before the current focused portfolio system.", technologies: ["Next.js", "TypeScript", "Three.js", "Supabase"], github_url: `${GH}/amiru`, year: "2026", language: "TypeScript", visual: "learning",
   },
 ];
 
-export const featuredProjects = projects.filter((p) => p.featured);
+export const featuredProjects = projects.filter((project) => project.featured);
 
 export const MEDIUM_URL = "https://medium.com/@amirunoel8";
 
 export const articles = [
   {
     title: "The Transformer: A Mechanical Deconstruction of the Engine Powering Modern AI",
-    description:
-      "How eight Google researchers in 2017 replaced an entire paradigm — and accidentally ignited the generative AI era.",
+    description: "How the 2017 Transformer paper replaced an entire paradigm and ignited the generative AI era.",
     link: "https://medium.com/@amirunoel8/the-transformer-a-mechanical-deconstruction-of-the-engine-powering-modern-ai-9bfea4a5e497",
-    image: "https://cdn-images-1.medium.com/max/1024/1*xrSLdl9G6IMxVCV6sFH0og.png",
-    published_date: "Mar 11, 2026",
-    read_time: "10 min read",
-    category: "Transformers",
-    pinned: true,
+    image: "https://cdn-images-1.medium.com/max/1024/1*xrSLdl9G6IMxVCV6sFH0og.png", published_date: "Mar 11, 2026", read_time: "10 min read", category: "Transformers", pinned: true,
   },
   {
     title: "From Neighbors to the Whole Picture: The Evolution of Sequence Modelling in AI",
-    description:
-      "How machine learning learned to stop looking at isolated data points and start reading the room.",
+    description: "How machine learning learned to stop looking at isolated data points and start reading the room.",
     link: "https://medium.com/@amirunoel8/from-neighbors-to-the-whole-picture-the-evolution-of-sequence-modelling-in-ai-58f8ce6b9be4",
-    image: "https://cdn-images-1.medium.com/max/1024/1*59gv8CrNsm73J0LFF9wdpw.png",
-    published_date: "Mar 10, 2026",
-    read_time: "9 min read",
-    category: "Machine Learning",
-    pinned: true,
+    image: "https://cdn-images-1.medium.com/max/1024/1*59gv8CrNsm73J0LFF9wdpw.png", published_date: "Mar 10, 2026", read_time: "9 min read", category: "Machine Learning", pinned: true,
   },
   {
     title: "Machine Learning isn't magic.",
-    description:
-      "A breakdown of the core machine learning algorithms every AI engineer should understand — and the maths underneath them.",
+    description: "A practical breakdown of the core machine-learning algorithms every AI engineer should understand.",
     link: "https://medium.com/@amirunoel8/machine-learning-isnt-magic-ecf08ec85248",
-    image: "https://cdn-images-1.medium.com/max/1024/1*4d9GLT7ZEzEf1lVGW0wxuA.png",
-    published_date: "Mar 9, 2026",
-    read_time: "2 min read",
-    category: "Machine Learning",
-    pinned: true,
+    image: "https://cdn-images-1.medium.com/max/1024/1*4d9GLT7ZEzEf1lVGW0wxuA.png", published_date: "Mar 9, 2026", read_time: "2 min read", category: "Machine Learning", pinned: true,
   },
 ];
 

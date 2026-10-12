@@ -4,8 +4,7 @@ import ProjectsPage from "./ProjectsPage";
 
 export const metadata: Metadata = {
   title: "Projects | Amiru Mallawarachchi",
-  description:
-    "Multi-agent AI systems, transformer model training, RAG pipelines and full-stack platforms — the complete collection.",
+  description: "The complete collection: agentic AI systems, MCP applications, backend platforms, data projects, and full-stack builds.",
 };
 
 export default function Page() {

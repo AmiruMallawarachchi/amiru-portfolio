@@ -11,7 +11,7 @@ import ProjectsListing from "@/components/sections/ProjectsListing";
 import BlogSection from "@/components/sections/BlogSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Magnetic from "@/components/ui/Magnetic";
-import RouterGraph from "@/components/hero/RouterGraph";
+import MindLensOrb from "@/components/hero/MindLensOrb";
 import { Download, Github, Linkedin, Mail, ArrowDown, Cpu } from "lucide-react";
 import type { Project, Profile, Article } from "@/lib/content";
 
@@ -96,7 +96,7 @@ export default function HomeClient({
             nodes fall outside the viewport and the labels go illegible. */}
         <div className="absolute right-0 top-0 bottom-0 w-[52%] z-0 hidden md:flex items-center justify-center pointer-events-none">
           <div className="w-full px-6">
-            <RouterGraph />
+            <MindLensOrb />
           </div>
           <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-background to-transparent" />
         </div>
@@ -184,13 +184,13 @@ export default function HomeClient({
         <SkillsSection skills={skills} />
       </div>
       <ExperienceEducation experience={experience} education={education} />
-      <Interests interests={interests} />
       <div id="projects" className="bg-background">
         <ProjectsListing projects={projects} />
       </div>
       <div id="blog">
         <BlogSection posts={articles} />
       </div>
+      <Interests interests={interests} />
       <div id="contact">
         <ContactSection />
       </div>

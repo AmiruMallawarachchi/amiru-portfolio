@@ -15,7 +15,7 @@ export default function ProjectsListing({ projects }: { projects: Project[] }) {
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 sm:mb-24 gap-8">
           <div>
-            <span className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-4 block">{"// featured"}</span>
+            <span className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-4 block">{"// featured work"}</span>
             <TextReveal>
               <h2 className="font-display font-medium leading-[0.95] text-[clamp(2.25rem,8vw,5rem)]">
                 FEATURED <br />
@@ -23,14 +23,14 @@ export default function ProjectsListing({ projects }: { projects: Project[] }) {
               </h2>
             </TextReveal>
           </div>
-          <p className="max-w-md text-foreground/50 md:text-right font-light">
-            Multi-agent systems, full-stack platforms, and everything shipped in between.
+            <p className="max-w-md text-foreground/50 md:text-right font-light">
+            Three projects that show the range: agentic AI, MCP systems, and production software engineering.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-20 sm:gap-28 md:gap-32">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8">
           {projects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+            <ProjectCard key={project.slug} project={project} featured compact />
           ))}
         </div>
 

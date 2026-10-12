@@ -11,7 +11,10 @@ export default function Interests({ interests }: InterestsProps) {
     <section className="relative py-24 sm:py-32 px-5 sm:px-8 bg-surface overflow-hidden">
       <div className="max-w-4xl mx-auto text-center">
         <span className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-8 block">{"// interests"}</span>
-        <h2 className="text-[clamp(1.5rem,5vw,3rem)] font-display mb-12 sm:mb-16 italic">&ldquo;Passionate about the future&rdquo;</h2>
+        <h2 className="text-[clamp(1.5rem,5vw,3rem)] font-display mb-5 italic">&ldquo;Building the future, one useful system at a time.&rdquo;</h2>
+        <p className="mx-auto mb-12 max-w-2xl text-sm leading-relaxed text-white/45 sm:mb-16 sm:text-base">
+          I care about the balance between strong software foundations and ambitious AI - the engineering that makes ideas dependable, and the curiosity that keeps them moving forward.
+        </p>
         
         <div className="flex flex-wrap justify-center gap-4">
           {interests.map((interest, idx) => (

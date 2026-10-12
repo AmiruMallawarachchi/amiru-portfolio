@@ -21,9 +21,9 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Amiru Mallawarachchi | AI Engineer",
+  title: "Amiru Mallawarachchi | Software & Gen AI Engineer",
   description:
-    "AI Engineer building LLM applications, agentic systems and RAG. Fine-tuned and published five transformer models to Hugging Face, then built the 14-agent platform that serves them.",
+    "Software and Gen AI Engineer building production systems, agentic applications, and reliable full-stack products.",
 };
 
 export default function RootLayout({

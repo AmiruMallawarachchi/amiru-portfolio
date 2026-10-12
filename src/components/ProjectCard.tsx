@@ -5,8 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
 import type { Project } from "@/lib/content";
+import ProjectArtwork from "@/components/ProjectArtwork";
 
-export default function ProjectCard({ project, featured }: { project: Project; featured?: boolean }) {
+export default function ProjectCard({ project, featured, compact = false }: { project: Project; featured?: boolean; compact?: boolean }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 80 }}
@@ -41,7 +42,7 @@ export default function ProjectCard({ project, featured }: { project: Project; f
 
       <Link
         href={`/projects/${project.slug}`}
-        className="block overflow-hidden rounded-3xl aspect-[16/9] relative group-hover:shadow-[0_0_50px_rgba(255,159,28,0.15)] transition-shadow duration-500 border border-white/10"
+        className={`block overflow-hidden rounded-3xl relative group-hover:shadow-[0_0_50px_rgba(255,159,28,0.15)] transition-shadow duration-500 border border-white/10 ${compact ? "aspect-[4/3]" : "aspect-[16/9]"}`}
       >
         {project.thumbnail ? (
           <Image
@@ -51,11 +52,7 @@ export default function ProjectCard({ project, featured }: { project: Project; f
             className="object-cover transition-transform duration-1000 group-hover:scale-105"
           />
         ) : (
-          <div className="absolute inset-0 bg-surface flex items-center justify-center px-6 text-center">
-            <span className="font-display text-[clamp(1.75rem,7vw,4.5rem)] leading-[0.95] text-foreground/[0.07] font-bold tracking-tighter uppercase select-none">
-              {project.title}
-            </span>
-          </div>
+          <ProjectArtwork project={project} />
         )}
         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
           <div className="w-20 h-20 rounded-full bg-accent flex items-center justify-center text-background shadow-[0_0_20px_rgba(255,159,28,0.5)]">
@@ -64,23 +61,23 @@ export default function ProjectCard({ project, featured }: { project: Project; f
         </div>
       </Link>
 
-      <div className="mt-6 sm:mt-10 flex flex-col md:flex-row justify-between items-start gap-6 md:gap-8">
+      <div className={`${compact ? "mt-5" : "mt-6 sm:mt-10"} flex flex-col justify-between items-start gap-5`}>
         <div className="max-w-2xl">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-display mb-4 sm:mb-6 group-hover:translate-x-4 transition-transform duration-500">
+          <h3 className={`${compact ? "text-xl sm:text-2xl" : "text-2xl sm:text-3xl md:text-4xl"} font-display mb-3 group-hover:translate-x-2 transition-transform duration-500`}>
             {project.title}
           </h3>
-          <p className="text-base sm:text-lg md:text-xl text-foreground/50 font-light leading-relaxed mb-6 sm:mb-8">{project.description}</p>
-          <div className="flex flex-wrap gap-3 mb-8">
+          <p className={`${compact ? "text-sm" : "text-base sm:text-lg md:text-xl"} text-foreground/50 font-light leading-relaxed mb-5`}>{project.description}</p>
+          <div className="flex flex-wrap gap-2 mb-6">
             {project.technologies.map((tag) => (
               <span
                 key={tag}
-                className="font-mono text-[10px] uppercase tracking-widest border border-white/10 px-3 py-1 rounded-full text-foreground/40"
+                className="font-mono text-[9px] uppercase tracking-widest border border-white/10 px-2.5 py-1 rounded-full text-foreground/40"
               >
                 {tag}
               </span>
             ))}
           </div>
-          <div className="flex flex-wrap items-center gap-6">
+          <div className="flex flex-wrap items-center gap-4">
             <a
               href={project.github_url}
               target="_blank"

@@ -27,8 +27,7 @@ export const profile = {
   full_name: "Amiru Mallawarachchi",
   title: "Software & Gen AI Engineer",
   subtitle: "SOFTWARE ENGINEERING · GEN AI · PRODUCTION SYSTEMS",
-  hero_line:
-    "Aspiring Gen AI Engineer designing and building production software that makes intelligence useful.",
+  hero_line: "Software Engineer building reliable products for the Gen AI era.",
   bio_intro: "Software Engineer designing and building the systems that take AI from idea to production.",
   bio_description:
     "I am a final-year Software Engineering student focused on Gen AI: reliable backends, agentic workflows, retrieval systems, and interfaces that people can actually use. I chose software over the finance path my family expected because I was drawn to the future I saw in sci-fi - from Iron Man's workshop to Wakanda's technology - and I am turning that curiosity into disciplined engineering: clear architecture, safe model behavior, and products that hold up beyond the demo.",
@@ -143,7 +142,7 @@ export const projects: Project[] = [
     description: "An enterprise ticketing and operations platform that turns customer requests into clear, accountable work.",
     body: "Solvix is the software-engineering anchor of the portfolio: a secure ticketing platform with a Java 17 and Spring Boot 3 backend, a Next.js frontend, PostgreSQL persistence, Flyway migrations, Docker, and JWT-based role access. It models a six-stage ticket lifecycle in the domain layer and ships as a live Vercel, Render, and Neon deployment.",
     highlights: ["JWT authentication, BCrypt password hashing, and role-based access control for customers and support agents.", "Six-stage ticket lifecycle with domain-enforced transitions and complete activity history.", "Flyway migrations, GitHub Actions CI, Docker, and a recruiter-friendly synthetic demo environment."],
-    technologies: ["Java 17", "Spring Boot 3", "PostgreSQL", "Next.js", "Docker", "JWT"], github_url: `${GH}/solvix`, demo_url: "https://solvix-amiru.vercel.app", year: "2026", language: "Java", featured: true, visual: "solvix",
+    technologies: ["Java 17", "Spring Boot 3", "PostgreSQL", "Next.js", "Docker", "JWT"], github_url: `${GH}/solvix`, demo_url: "https://solvix-amiru.vercel.app", thumbnail: "/projects/solvix.png", year: "2026", language: "Java", featured: true, visual: "solvix",
   },
   {
     slug: "nlp-suite", title: "Multi-Task NLP Intelligence Suite", repo: "nlp-suite-project",
@@ -212,6 +211,24 @@ export const projects: Project[] = [
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);
+
+const recruiterOrder = [
+  "mindlens",
+  "multi-agent-travel-planner",
+  "solvix",
+  "election-system",
+  "fitzone",
+  "ocean-view-resort",
+  "nlp-suite",
+  "luxevista-mobile",
+  "stellar-prediction-api",
+];
+
+export const orderedProjects = [...projects].sort((a, b) => {
+  const aIndex = recruiterOrder.indexOf(a.slug);
+  const bIndex = recruiterOrder.indexOf(b.slug);
+  return (aIndex === -1 ? recruiterOrder.length : aIndex) - (bIndex === -1 ? recruiterOrder.length : bIndex);
+});
 
 export const MEDIUM_URL = "https://medium.com/@amirunoel8";
 

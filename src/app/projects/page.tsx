@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { projects } from "@/lib/content";
+import { orderedProjects } from "@/lib/content";
 import ProjectsPage from "./ProjectsPage";
 
 export const metadata: Metadata = {
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ProjectsPage projects={projects} />;
+  return <ProjectsPage projects={orderedProjects} />;
 }

@@ -11,7 +11,6 @@ import ProjectsListing from "@/components/sections/ProjectsListing";
 import BlogSection from "@/components/sections/BlogSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Magnetic from "@/components/ui/Magnetic";
-import EngineeringHeroVisual from "@/components/hero/EngineeringHeroVisual";
 import { Download, Github, Linkedin, Mail, ArrowDown, Cpu } from "lucide-react";
 import type { Project, Profile, Article } from "@/lib/content";
 
@@ -91,16 +90,6 @@ export default function HomeClient({
         id="home"
         className="relative min-h-[100svh] flex flex-col overflow-hidden px-5 sm:px-8 lg:px-12 pt-28 sm:pt-32 pb-8 sm:pb-10"
       >
-        {/* Signature visual, given its own column on the right so its node
-            labels never collide with the copy. Hidden on phones, where the
-            nodes fall outside the viewport and the labels go illegible. */}
-        <div className="absolute right-0 top-0 bottom-0 w-[52%] z-0 hidden md:flex items-center justify-center pointer-events-none">
-          <div className="w-full px-6">
-            <EngineeringHeroVisual />
-          </div>
-          <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-background to-transparent" />
-        </div>
-
         <motion.div
           style={{ y, opacity }}
           className="relative z-10 flex flex-col flex-1 min-w-0"

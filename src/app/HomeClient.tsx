@@ -94,13 +94,10 @@ export default function HomeClient({
         </div>
 
         <div className="relative z-10 flex min-w-0 flex-1 flex-col">
-          {/* Identity */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="flex flex-wrap items-start justify-between gap-x-8 gap-y-4"
-          >
+          {/* Identity — deliberately not animated. Anything that starts at
+              opacity 0 is invisible to the browser's first paint, which pushes
+              out LCP on the element that matters most. */}
+          <div className="flex flex-wrap items-start justify-between gap-x-8 gap-y-4">
             <div className="min-w-0">
               <h1 className="font-display font-bold leading-[0.95] text-[clamp(1.5rem,5.2vw,3.5rem)] break-words">
                 {profile.name}{" "}
@@ -125,7 +122,7 @@ export default function HomeClient({
                 BSc (Hons) SE · Graduating 2027
               </span>
             </div>
-          </motion.div>
+          </div>
 
           {/* System map */}
           <motion.div
@@ -142,16 +139,11 @@ export default function HomeClient({
           {/* Statement + meta bar, anchored to the bottom so the space between
               them and the name reads as one deliberate gap, not two. */}
           <div className="mt-auto flex flex-col gap-8 pt-12 sm:gap-10 sm:pt-14">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-              className="max-w-[30rem]"
-            >
+            <div className="max-w-[30rem]">
               <p className="max-w-[24ch] font-display font-medium leading-[1.1] tracking-tight text-[clamp(1.55rem,3.4vw,2.6rem)] [hyphens:none]">
                 {profile.hero_line}
               </p>
-            </motion.div>
+            </div>
 
             <motion.div
               initial={{ opacity: 0 }}

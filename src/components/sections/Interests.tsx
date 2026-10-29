@@ -29,8 +29,12 @@ export default function Interests({ interests }: InterestsProps) {
         </div>
       </div>
 
-      {/* Decorative large text */}
-      <div className="absolute -bottom-6 sm:-bottom-20 left-0 right-0 pointer-events-none overflow-hidden h-16 sm:h-40">
+      {/* Decorative marquee — 2% opacity, so it is texture rather than content.
+          Hidden from assistive tech for the same reason. */}
+      <div
+        aria-hidden="true"
+        className="absolute -bottom-6 sm:-bottom-20 left-0 right-0 pointer-events-none overflow-hidden h-16 sm:h-40"
+      >
         <motion.div 
           animate={{ x: [0, -1000] }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}

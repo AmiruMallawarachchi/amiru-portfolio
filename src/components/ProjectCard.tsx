@@ -7,7 +7,17 @@ import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
 import type { Project } from "@/lib/content";
 import ProjectArtwork from "@/components/ProjectArtwork";
 
-export default function ProjectCard({ project, featured, compact = false }: { project: Project; featured?: boolean; compact?: boolean }) {
+export default function ProjectCard({
+  project,
+  featured,
+  compact = false,
+  priority = false,
+}: {
+  project: Project;
+  featured?: boolean;
+  compact?: boolean;
+  priority?: boolean;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 80 }}
@@ -24,14 +34,14 @@ export default function ProjectCard({ project, featured, compact = false }: { pr
       )}
 
       {/* Mono header strip */}
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-4 font-mono text-[10px] sm:text-[11px] text-foreground/40">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-4 font-mono text-[10px] sm:text-[11px] text-foreground/65">
         <span className="text-accent-secondary">▸</span>
         <span className="uppercase tracking-wider">{project.repo}</span>
-        <span className="text-foreground/20">·</span>
+        <span className="text-foreground/65">·</span>
         <span className="uppercase tracking-wider">{project.language}</span>
         {project.demo_url && (
           <>
-            <span className="text-foreground/20">·</span>
+            <span className="text-foreground/65">·</span>
             <span className="flex items-center gap-1.5 text-accent">
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
               live
@@ -47,8 +57,10 @@ export default function ProjectCard({ project, featured, compact = false }: { pr
         {project.thumbnail ? (
           <Image
             src={project.thumbnail}
-            alt={project.title}
+            alt={`${project.title} — ${project.description}`}
             fill
+            sizes={compact ? "(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 90vw" : "(min-width: 1024px) 55vw, 92vw"}
+            priority={priority}
             className="object-cover transition-transform duration-1000 group-hover:scale-105"
           />
         ) : (
@@ -66,12 +78,12 @@ export default function ProjectCard({ project, featured, compact = false }: { pr
           <h3 className={`${compact ? "text-xl sm:text-2xl" : "text-2xl sm:text-3xl md:text-4xl"} font-display mb-3 group-hover:translate-x-2 transition-transform duration-500`}>
             {project.title}
           </h3>
-          <p className={`${compact ? "text-sm" : "text-base sm:text-lg md:text-xl"} text-foreground/50 font-light leading-relaxed mb-5`}>{project.description}</p>
+          <p className={`${compact ? "text-sm" : "text-base sm:text-lg md:text-xl"} text-foreground/55 font-light leading-relaxed mb-5`}>{project.description}</p>
           <div className="flex flex-wrap gap-2 mb-6">
             {project.technologies.map((tag) => (
               <span
                 key={tag}
-                className="font-mono text-[9px] uppercase tracking-widest border border-white/10 px-2.5 py-1 rounded-full text-foreground/40"
+                className="font-mono text-[9px] uppercase tracking-widest border border-white/10 px-2.5 py-1 rounded-full text-foreground/65"
               >
                 {tag}
               </span>
@@ -82,7 +94,7 @@ export default function ProjectCard({ project, featured, compact = false }: { pr
               href={project.github_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-foreground/50 hover:text-foreground transition-colors font-mono text-xs uppercase tracking-widest"
+              className="flex items-center gap-2 text-foreground/65 hover:text-foreground transition-colors font-mono text-xs uppercase tracking-widest"
             >
               <Github size={14} /> GitHub
             </a>

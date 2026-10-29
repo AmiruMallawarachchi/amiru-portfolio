@@ -11,7 +11,7 @@ export default function ProjectDetailClient({ project }: { project: Project }) {
     <div className="min-h-screen bg-background text-foreground pt-28 sm:pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Back Button */}
-        <Link href="/projects" className="inline-flex items-center gap-2 text-foreground/30 hover:text-foreground transition-colors mb-12 group font-mono">
+        <Link href="/projects" className="inline-flex items-center gap-2 text-foreground/65 hover:text-foreground transition-colors mb-12 group font-mono">
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
           <span className="text-sm uppercase tracking-widest">Back to Gallery</span>
         </Link>
@@ -27,19 +27,19 @@ export default function ProjectDetailClient({ project }: { project: Project }) {
           </motion.h1>
           <div className="flex flex-wrap gap-x-10 gap-y-6">
             <div className="flex flex-col gap-2">
-              <span className="font-mono text-foreground/30 text-[10px] uppercase tracking-widest">Year</span>
+              <span className="font-mono text-foreground/65 text-[10px] uppercase tracking-widest">Year</span>
               <span className="text-lg">{project.year}</span>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="font-mono text-foreground/30 text-[10px] uppercase tracking-widest">Focus</span>
+              <span className="font-mono text-foreground/65 text-[10px] uppercase tracking-widest">Focus</span>
               <span className="text-lg">{project.technologies[0]}</span>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="font-mono text-foreground/30 text-[10px] uppercase tracking-widest">Links</span>
+              <span className="font-mono text-foreground/65 text-[10px] uppercase tracking-widest">Links</span>
               <div className="flex gap-4">
-                <a href={project.github_url} target="_blank" rel="noopener noreferrer" className="hover:text-foreground/50 transition-colors"><Github size={20} /></a>
-                {project.demo_url && <a href={project.demo_url} target="_blank" rel="noopener noreferrer" className="hover:text-foreground/50 transition-colors"><ExternalLink size={20} /></a>}
-                {project.hf_url && <a href={project.hf_url} target="_blank" rel="noopener noreferrer" className="hover:text-foreground/50 transition-colors"><Cpu size={20} /></a>}
+                <a href={project.github_url} target="_blank" rel="noopener noreferrer" className="hover:text-foreground/65 transition-colors"><Github size={20} /></a>
+                {project.demo_url && <a href={project.demo_url} target="_blank" rel="noopener noreferrer" className="hover:text-foreground/65 transition-colors"><ExternalLink size={20} /></a>}
+                {project.hf_url && <a href={project.hf_url} target="_blank" rel="noopener noreferrer" className="hover:text-foreground/65 transition-colors"><Cpu size={20} /></a>}
               </div>
             </div>
           </div>
@@ -49,7 +49,14 @@ export default function ProjectDetailClient({ project }: { project: Project }) {
         <section className="mb-20 sm:mb-32">
           <div className="relative aspect-[21/9] rounded-2xl sm:rounded-[2rem] overflow-hidden border border-white/10">
             {project.thumbnail ? (
-              <Image src={project.thumbnail} alt={project.title} fill className="object-cover" priority />
+              <Image
+                src={project.thumbnail}
+                alt={`${project.title} — ${project.description}`}
+                fill
+                sizes="(min-width: 1024px) 80vw, 92vw"
+                priority
+                className="object-cover"
+              />
             ) : (
               <div className="absolute inset-0 bg-surface flex items-center justify-center">
                 <span className="font-display text-[clamp(1.5rem,6vw,5rem)] text-foreground/[0.07] font-bold tracking-tighter uppercase select-none break-all px-6 text-center">
@@ -63,17 +70,17 @@ export default function ProjectDetailClient({ project }: { project: Project }) {
         {/* Content Grid */}
         <div className="grid lg:grid-cols-3 gap-12 lg:gap-24 mb-24 lg:mb-32">
           <div className="lg:col-span-2">
-            <h2 className="font-mono text-sm uppercase tracking-widest text-foreground/30 mb-8 font-bold">The Vision</h2>
+            <h2 className="font-mono text-sm uppercase tracking-widest text-foreground/65 mb-8 font-bold">The Vision</h2>
             <div className="prose prose-invert max-w-none">
               <p className="text-lg sm:text-xl md:text-2xl text-foreground/70 leading-relaxed font-light mb-10 sm:mb-12 border-l-2 border-white/20 pl-5 sm:pl-8">
                 {project.description}
               </p>
-              <p className="text-lg text-foreground/50 leading-relaxed font-light">{project.body}</p>
+              <p className="text-lg text-foreground/65 leading-relaxed font-light">{project.body}</p>
             </div>
 
             {project.highlights && project.highlights.length > 0 && (
               <div className="mt-20">
-                <h2 className="font-mono text-sm uppercase tracking-widest text-foreground/30 mb-10 font-bold">
+                <h2 className="font-mono text-sm uppercase tracking-widest text-foreground/65 mb-10 font-bold">
                   What I Built
                 </h2>
                 <ul className="space-y-8">
@@ -91,7 +98,7 @@ export default function ProjectDetailClient({ project }: { project: Project }) {
           </div>
           <div className="space-y-12">
             <div>
-              <h3 className="font-mono text-xs uppercase tracking-widest text-foreground/30 mb-6 font-bold">Stack</h3>
+              <h3 className="font-mono text-xs uppercase tracking-widest text-foreground/65 mb-6 font-bold">Stack</h3>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
                   <span key={tech} className="px-4 py-2 rounded-full border border-white/10 text-xs bg-white/5 font-mono">
@@ -102,7 +109,7 @@ export default function ProjectDetailClient({ project }: { project: Project }) {
             </div>
             {project.wiki_url && (
               <div>
-                <h3 className="font-mono text-xs uppercase tracking-widest text-foreground/30 mb-6 font-bold">Resources</h3>
+                <h3 className="font-mono text-xs uppercase tracking-widest text-foreground/65 mb-6 font-bold">Resources</h3>
                 <a
                   href={project.wiki_url}
                   target="_blank"
@@ -122,10 +129,11 @@ export default function ProjectDetailClient({ project }: { project: Project }) {
         <section className="space-y-20 sm:space-y-32">
           {project.video_url && (
             <div>
-              <h2 className="text-center text-foreground/30 uppercase tracking-[0.3em] text-xs mb-12 italic font-mono">System Walkthrough</h2>
+              <h2 className="text-center text-foreground/65 uppercase tracking-[0.3em] text-xs mb-12 italic font-mono">System Walkthrough</h2>
               <div className="aspect-video w-full rounded-2xl sm:rounded-[2rem] overflow-hidden border border-white/10 bg-white/5">
                 <iframe
                   src={project.video_url}
+                  title={`${project.title} system walkthrough`}
                   className="w-full h-full border-0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -136,7 +144,7 @@ export default function ProjectDetailClient({ project }: { project: Project }) {
 
           {project.architecture_image && (
             <div>
-              <h2 className="font-mono text-sm uppercase tracking-widest text-foreground/30 mb-12 font-bold flex items-center gap-3">
+              <h2 className="font-mono text-sm uppercase tracking-widest text-foreground/65 mb-12 font-bold flex items-center gap-3">
                 <Cpu size={18} />
                 System Architecture
               </h2>
@@ -151,7 +159,7 @@ export default function ProjectDetailClient({ project }: { project: Project }) {
         <footer className="mt-28 sm:mt-48 pt-16 sm:pt-24 border-t border-white/5 text-center">
           <Link
             href="/#contact"
-            className="font-display font-medium hover:text-foreground/50 transition-colors text-[clamp(1.75rem,6vw,4rem)] leading-tight"
+            className="font-display font-medium hover:text-foreground/65 transition-colors text-[clamp(1.75rem,6vw,4rem)] leading-tight"
           >
             HAVE A PROJECT IN MIND?
           </Link>

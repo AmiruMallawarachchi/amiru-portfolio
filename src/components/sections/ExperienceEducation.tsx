@@ -27,7 +27,7 @@ export default function ExperienceEducation({ experience, education }: Experienc
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 md:gap-24">
         {/* Experience Column */}
         <div>
-          <span className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-12 block">01 / Experience</span>
+          <h2 className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-12 block">01 / Experience</h2>
           <div className="space-y-12 sm:space-y-16">
             {experience.map((item, idx) => (
               <motion.div
@@ -37,10 +37,10 @@ export default function ExperienceEducation({ experience, education }: Experienc
                 viewport={{ once: true }}
                 className="group"
               >
-                <span className="font-mono text-foreground/30 text-sm mb-4 block">{item.period}</span>
+                <span className="font-mono text-foreground/65 text-sm mb-4 block">{item.period}</span>
                 <h3 className="text-2xl font-display mb-2 group-hover:text-foreground transition-colors">{item.title}</h3>
-                <p className="text-foreground/40 text-sm mb-6">{item.company}</p>
-                <p className="text-foreground/60 font-light leading-relaxed">{item.description}</p>
+                <p className="text-foreground/65 text-sm mb-6">{item.company}</p>
+                <p className="text-foreground/65 font-light leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -48,7 +48,7 @@ export default function ExperienceEducation({ experience, education }: Experienc
 
         {/* Education Column */}
         <div>
-          <span className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-12 block">02 / Education</span>
+          <h2 className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-12 block">02 / Education</h2>
           <div className="space-y-12 sm:space-y-16">
             {education.map((item, idx) => (
               <motion.div
@@ -58,10 +58,10 @@ export default function ExperienceEducation({ experience, education }: Experienc
                 viewport={{ once: true }}
                 className="group"
               >
-                <span className="font-mono text-foreground/30 text-sm mb-4 block">{item.period}</span>
+                <span className="font-mono text-foreground/65 text-sm mb-4 block">{item.period}</span>
                 <h3 className="text-2xl font-display mb-2 group-hover:text-foreground transition-colors">{item.degree}</h3>
-                <p className="text-foreground/40 text-sm mb-6">{item.institution}</p>
-                <p className="text-foreground/60 font-light leading-relaxed">{item.description}</p>
+                <p className="text-foreground/65 text-sm mb-6">{item.institution}</p>
+                <p className="text-foreground/65 font-light leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>

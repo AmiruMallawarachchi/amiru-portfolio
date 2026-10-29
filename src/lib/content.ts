@@ -25,15 +25,15 @@ export const profile = {
   name: "AMIRU",
   last_name: "MALLAWARACHCHI",
   full_name: "Amiru Mallawarachchi",
-  title: "Software & Gen AI Engineer",
-  subtitle: "SOFTWARE ENGINEERING · GEN AI · PRODUCTION SYSTEMS",
-  hero_line: "Software Engineer building reliable products for the Gen AI era.",
-  bio_intro: "Software Engineer designing and building the systems that take AI from idea to production.",
+  title: "AI Engineering Student",
+  subtitle: "GEN AI ENGINEERING · AGENTIC SYSTEMS · PRODUCTION AI",
+  hero_line: "AI engineering student building agentic systems that hold up outside the demo.",
+  bio_intro: "AI engineering student taking Gen AI from prototype to production — agentic workflows, retrieval, and the backend discipline that keeps them reliable.",
   bio_description:
-    "I am a final-year Software Engineering student focused on Gen AI: reliable backends, agentic workflows, retrieval systems, and interfaces that people can actually use. I chose software over the finance path my family expected because I was drawn to the future I saw in sci-fi - from Iron Man's workshop to Wakanda's technology - and I am turning that curiosity into disciplined engineering: clear architecture, safe model behavior, and products that hold up beyond the demo.",
-  status: "BSc (Hons) Software Engineering - graduating Feb 2027",
+    "I am a final-year Software Engineering student specialised in Gen AI — building agentic workflows, retrieval systems, reliable backends, and interfaces that hold up in the real world. I chose this path because I was drawn to the future I saw in sci-fi — from Iron Man's workshop to Wakanda's technology — and I am turning that curiosity into disciplined engineering: safe model behaviour, clear architecture, and products that survive beyond the demo.",
+  status: "BSc (Hons) Software Engineering — Graduating Feb 2027",
   location: "Moratuwa, Sri Lanka",
-  passions: "Software and AI systems with a human edge",
+  passions: "Agentic AI systems and production Gen AI engineering",
   hero_image: "/amiru.jpg",
   cv_url: "/cv.pdf",
   github_url: "https://github.com/AmiruMallawarachchi",
@@ -46,10 +46,10 @@ export const profile = {
 export type Profile = typeof profile;
 
 export const skills = [
-  { category: "Languages", items: ["Java 17", "Python", "TypeScript / JavaScript", "SQL", "PHP"] },
-  { category: "Software Engineering", items: ["Spring Boot", "FastAPI (async)", "REST APIs", "MVC architecture", "JPA / Hibernate", "JWT / RBAC", "Flyway"] },
-  { category: "AI & LLM Engineering", items: ["LangGraph", "LangChain", "MCP / FastMCP", "RAG", "Groq API", "Prompt & agent design", "Langfuse tracing"] },
-  { category: "Data & Model Work", items: ["PyTorch", "Hugging Face Transformers", "Pinecone", "MongoDB", "PostgreSQL", "MySQL", "XGBoost"] },
+  { category: "Gen AI & Agentic Engineering", items: ["LangGraph", "LangChain", "MCP / FastMCP", "RAG pipelines", "Groq API", "Prompt & agent design", "Langfuse tracing"] },
+  { category: "Models & Data", items: ["PyTorch", "Hugging Face Transformers", "Pinecone", "XGBoost", "LightGBM", "Fine-tuning", "Embeddings"] },
+  { category: "Backend & APIs", items: ["FastAPI (async)", "Spring Boot 3", "REST APIs", "JWT / RBAC", "PostgreSQL", "MongoDB", "Flyway"] },
+  { category: "Languages", items: ["Python", "TypeScript / JavaScript", "Java 17", "SQL", "PHP"] },
   { category: "Frontend & Product", items: ["Next.js", "React", "Tailwind CSS", "Streamlit", "Gradio", "SSE / WebSockets"] },
   { category: "Delivery & Quality", items: ["Docker", "GitHub Actions", "Vercel", "Render", "pytest", "CI/CD", "Data privacy"] },
 ];

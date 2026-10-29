@@ -19,18 +19,18 @@ export default function ProjectsListing({ projects }: { projects: Project[] }) {
             <TextReveal>
               <h2 className="font-display font-medium leading-[0.95] text-[clamp(2.25rem,8vw,5rem)]">
                 FEATURED <br />
-                <span className="text-foreground/20 italic">WORKS</span>
+                <span className="text-foreground/40 italic">WORK</span>
               </h2>
             </TextReveal>
           </div>
-            <p className="max-w-md text-foreground/50 md:text-right font-light">
+            <p className="max-w-md text-foreground/60 md:text-right font-light">
             Three projects that show the range: agentic AI, MCP systems, and production software engineering.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8">
-          {projects.map((project) => (
-            <ProjectCard key={project.slug} project={project} featured compact />
+          {projects.map((project, index) => (
+            <ProjectCard key={project.slug} project={project} featured compact priority={index === 0} />
           ))}
         </div>
 

@@ -17,7 +17,7 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-foreground/40 hover:text-foreground transition-colors text-xs uppercase tracking-widest mb-12 font-mono"
+              className="inline-flex items-center gap-2 text-foreground/55 hover:text-foreground transition-colors text-xs uppercase tracking-widest mb-12 font-mono"
             >
               <ArrowLeft size={14} />
               Back to Home
@@ -37,7 +37,7 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
               <TextReveal>
                 <h1 className="font-display font-medium leading-[0.95] text-[clamp(2.5rem,9vw,6rem)]">
                   ALL <br />
-                  <span className="text-foreground/20 italic">PROJECTS</span>
+                  <span className="text-foreground/40 italic">PROJECTS</span>
                 </h1>
               </TextReveal>
             </div>
@@ -45,7 +45,7 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="max-w-md text-foreground/50 md:text-right font-light"
+              className="max-w-md text-foreground/65 md:text-right font-light"
             >
               The complete collection — from agentic AI systems to enterprise apps and mobile builds.
             </motion.p>
@@ -66,7 +66,7 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
 
       {/* Footer CTA */}
       <div className="py-20 border-t border-white/5 text-center">
-        <p className="font-mono text-foreground/20 text-xs uppercase tracking-widest mb-8">Want to work together?</p>
+        <p className="font-mono text-foreground/55 text-xs uppercase tracking-widest mb-8">Want to work together?</p>
         <a
           href={`mailto:${profile.email}`}
           className="text-3xl md:text-5xl font-display text-foreground/80 hover:text-foreground transition-colors"

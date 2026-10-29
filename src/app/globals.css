@@ -95,6 +95,42 @@
   }
 }
 
+/* ── Hero system map ──────────────────────────────────────────────────────── */
+/* Edges carry a single normalised dash (pathLength=1), so one offset cycle is
+   one token travelling from the agent loop out to a capability node. */
+@keyframes ag-edge-flow {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -1; }
+}
+
+@keyframes ag-ring-drift {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -288; }
+}
+
+.ag-flow {
+  animation: ag-edge-flow 3.6s linear infinite;
+}
+
+.ag-ring-slow {
+  animation: ag-ring-drift 52s linear infinite;
+}
+
+.ag-ring-slower {
+  animation: ag-ring-drift 84s linear infinite reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ag-flow {
+    display: none;
+  }
+
+  .ag-ring-slow,
+  .ag-ring-slower {
+    animation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -1,0 +1,37 @@
+# Amiru Mallawarachchi
+
+> AI engineering student in Moratuwa, Sri Lanka, building production-grade Gen AI systems:
+> LangGraph agent workflows, MCP tool servers, retrieval pipelines, and the FastAPI and
+> Next.js backends that keep them reliable. BSc (Hons) Software Engineering, graduating
+> February 2027. Gen AI Engineer certification from STEMLink (outstanding distinction).
+
+## Profile
+
+- Role: AI Engineering Student / early-career Gen AI engineer
+- Location: Moratuwa, Sri Lanka (GMT+5:30), open to remote
+- Focus: agentic systems, retrieval-augmented generation, evaluation and guardrails, production AI backends
+- Languages: Python, TypeScript/JavaScript, Java 17, SQL, PHP
+- Frameworks: LangGraph, LangChain, MCP/FastMCP, FastAPI, Next.js, Spring Boot 3, Hugging Face Transformers
+- Infrastructure: Docker, GitHub Actions, Vercel, Render, PostgreSQL, MongoDB, Pinecone, Supabase
+
+## Selected work
+
+- [MindLens](https://amiru-portfolio.vercel.app/projects/mindlens): privacy-conscious multi-agent wellbeing platform with bounded LangGraph orchestration, deterministic crisis screening before any model call, PII anonymisation, and metadata-only observability.
+- [TripWeaver](https://amiru-portfolio.vercel.app/projects/multi-agent-travel-planner): intent-routed travel planner where six FastMCP services isolate flight, hotel, itinerary, weather, currency and location tools behind a LangGraph router.
+- [Solvix](https://amiru-portfolio.vercel.app/projects/solvix): enterprise ticketing platform on Java 17, Spring Boot 3 and PostgreSQL with JWT/RBAC, a six-stage domain lifecycle, Flyway migrations and CI.
+- [Multi-Task NLP Intelligence Suite](https://amiru-portfolio.vercel.app/projects/nlp-suite): one typed FastAPI + Next.js interface over five Hugging Face pipelines.
+- [Automated Presidential Election System](https://amiru-portfolio.vercel.app/projects/election-system): multilingual election workflow selected for the EXITO'26 industry exhibition.
+
+## Writing
+
+- [The Transformer: A Mechanical Deconstruction](https://medium.com/@amirunoel8/the-transformer-a-mechanical-deconstruction-of-the-engine-powering-modern-ai-9bfea4a5e497)
+- [From Neighbors to the Whole Picture: sequence modelling](https://medium.com/@amirunoel8/from-neighbors-to-the-whole-picture-the-evolution-of-sequence-modelling-in-ai-58f8ce6b9be4)
+- [Machine Learning isn't magic](https://medium.com/@amirunoel8/machine-learning-isnt-magic-ecf08ec85248)
+
+## Contact
+
+- Email: amirunoel8@gmail.com
+- GitHub: https://github.com/AmiruMallawarachchi
+- LinkedIn: https://www.linkedin.com/in/amiru-mallawarachchi-97025a282/
+- Hugging Face: https://huggingface.co/AmiruMallawarachchi
+- CV: https://amiru-portfolio.vercel.app/cv.pdf

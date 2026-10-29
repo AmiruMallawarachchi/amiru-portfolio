@@ -21,14 +21,14 @@ export default function BlogSection({ posts }: BlogProps) {
             <TextReveal>
               <h2 className="font-display font-medium leading-[0.95] text-[clamp(2.25rem,8vw,5rem)]">
                 FROM THE <br />
-                <span className="text-white/20 italic">JOURNAL</span>
+                <span className="text-white/40 italic">JOURNAL</span>
               </h2>
             </TextReveal>
           </div>
           <a
             href={MEDIUM_URL}
             target="_blank"
-            className="group flex items-center gap-3 text-white/40 hover:text-white transition-colors border-b border-white/10 pb-2"
+            className="group flex items-center gap-3 text-white/55 hover:text-white transition-colors border-b border-white/10 pb-2"
           >
             <span>Read all on Medium</span>
             <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -63,17 +63,17 @@ export default function BlogSection({ posts }: BlogProps) {
               </div>
               <div className="px-6 pb-8 flex flex-col flex-grow">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-white/30 text-[10px] uppercase tracking-widest">{post.published_date}</span>
+                  <span className="text-white/50 text-[10px] uppercase tracking-widest">{post.published_date}</span>
                   <div className="w-1 h-1 rounded-full bg-white/20" />
-                  <span className="text-white/30 text-[10px] uppercase tracking-widest">{post.read_time}</span>
+                  <span className="text-white/50 text-[10px] uppercase tracking-widest">{post.read_time}</span>
                 </div>
                 <h3 className="text-2xl font-display mb-4 group-hover:text-white transition-colors leading-snug">
                   {post.title}
                 </h3>
-                <p className="text-white/50 font-light text-sm line-clamp-3 mb-8 flex-grow">
+                <p className="text-white/65 font-light text-sm line-clamp-3 mb-8 flex-grow">
                   {post.description}
                 </p>
-                <div className="flex items-center gap-2 text-white/30 group-hover:text-white transition-colors font-medium text-xs uppercase tracking-widest mt-auto">
+                <div className="flex items-center gap-2 text-white/50 group-hover:text-white transition-colors font-medium text-xs uppercase tracking-widest mt-auto">
                   <BookOpen size={14} />
                   <span>Full Article</span>
                 </div>

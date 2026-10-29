@@ -39,6 +39,7 @@ export default function Navigation() {
 
   return (
     <nav
+      aria-label="Primary"
       className={cn(
         "fixed inset-x-0 z-[90] flex justify-center px-3 transition-all duration-500",
         scrolled ? "top-3 sm:top-6" : "top-3 sm:top-8"
@@ -56,7 +57,7 @@ export default function Navigation() {
                   "text-[9px] sm:text-[10px] uppercase tracking-[0.06em] sm:tracking-widest font-bold transition-colors duration-300 whitespace-nowrap",
                   isActive(item.path)
                     ? "text-white"
-                    : "text-white/50 group-hover:text-white"
+                    : "text-white/65 group-hover:text-white"
                 )}
               >
                 {item.name}

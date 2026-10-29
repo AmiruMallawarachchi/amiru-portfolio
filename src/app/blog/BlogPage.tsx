@@ -34,7 +34,7 @@ export default function BlogPage({ posts }: BlogProps) {
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors text-xs uppercase tracking-widest mb-12"
+              className="inline-flex items-center gap-2 text-white/55 hover:text-white transition-colors text-xs uppercase tracking-widest mb-12"
             >
               <ArrowLeft size={14} />
               Back to Home
@@ -54,7 +54,7 @@ export default function BlogPage({ posts }: BlogProps) {
               <TextReveal>
                 <h1 className="font-display font-medium leading-[0.95] text-[clamp(2.5rem,9vw,6rem)]">
                   THE <br />
-                  <span className="text-white/20 italic">JOURNAL</span>
+                  <span className="text-white/40 italic">JOURNAL</span>
                 </h1>
               </TextReveal>
             </div>
@@ -64,14 +64,14 @@ export default function BlogPage({ posts }: BlogProps) {
               transition={{ delay: 0.3 }}
               className="md:text-right"
             >
-              <p className="text-white/50 font-light mb-4">
+              <p className="text-white/65 font-light mb-4">
                 Explainers on transformers, sequence modelling and the maths under modern AI.
               </p>
               <a
                 href={MEDIUM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors border-b border-white/10 pb-1 text-sm"
+                className="group inline-flex items-center gap-2 text-white/55 hover:text-white transition-colors border-b border-white/10 pb-1 text-sm"
               >
                 All articles on Medium
                 <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -89,7 +89,7 @@ export default function BlogPage({ posts }: BlogProps) {
             {categories.map((cat) => (
               <span
                 key={cat}
-                className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-widest text-white/50"
+                className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-widest text-white/65"
               >
                 {cat}
               </span>
@@ -132,17 +132,17 @@ export default function BlogPage({ posts }: BlogProps) {
               </div>
               <div className="p-8 md:p-12 flex flex-col justify-center">
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-white/30 text-[10px] uppercase tracking-widest">{posts[0].published_date}</span>
+                  <span className="text-white/50 text-[10px] uppercase tracking-widest">{posts[0].published_date}</span>
                   <div className="w-1 h-1 rounded-full bg-white/20" />
-                  <span className="text-white/30 text-[10px] uppercase tracking-widest">{posts[0].read_time}</span>
+                  <span className="text-white/50 text-[10px] uppercase tracking-widest">{posts[0].read_time}</span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-display mb-6 leading-snug group-hover:text-white transition-colors">
                   {posts[0].title}
                 </h2>
-                <p className="text-white/50 font-light leading-relaxed mb-8">
+                <p className="text-white/65 font-light leading-relaxed mb-8">
                   {posts[0].description}
                 </p>
-                <div className="flex items-center gap-2 text-white/40 group-hover:text-white transition-colors font-medium text-xs uppercase tracking-widest">
+                <div className="flex items-center gap-2 text-white/55 group-hover:text-white transition-colors font-medium text-xs uppercase tracking-widest">
                   <BookOpen size={14} />
                   <span>Read Article</span>
                   <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -180,17 +180,17 @@ export default function BlogPage({ posts }: BlogProps) {
                 </div>
                 <div className="px-5 pb-7 flex flex-col flex-grow">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="text-white/30 text-[10px] uppercase tracking-widest">{post.published_date}</span>
+                    <span className="text-white/50 text-[10px] uppercase tracking-widest">{post.published_date}</span>
                     <div className="w-1 h-1 rounded-full bg-white/20" />
-                    <span className="text-white/30 text-[10px] uppercase tracking-widest">{post.read_time}</span>
+                    <span className="text-white/50 text-[10px] uppercase tracking-widest">{post.read_time}</span>
                   </div>
                   <h3 className="text-xl font-display mb-3 group-hover:text-white transition-colors leading-snug">
                     {post.title}
                   </h3>
-                  <p className="text-white/50 font-light text-sm line-clamp-3 mb-6 flex-grow">
+                  <p className="text-white/65 font-light text-sm line-clamp-3 mb-6 flex-grow">
                     {post.description}
                   </p>
-                  <div className="flex items-center gap-2 text-white/30 group-hover:text-white transition-colors font-medium text-xs uppercase tracking-widest mt-auto">
+                  <div className="flex items-center gap-2 text-white/50 group-hover:text-white transition-colors font-medium text-xs uppercase tracking-widest mt-auto">
                     <BookOpen size={12} />
                     <span>Read Article</span>
                   </div>
@@ -203,7 +203,7 @@ export default function BlogPage({ posts }: BlogProps) {
 
       {/* Footer CTA */}
       <div className="py-16 sm:py-20 px-5 border-t border-white/5 text-center">
-        <p className="font-mono text-white/20 text-xs uppercase tracking-widest mb-4">More on Medium</p>
+        <p className="font-mono text-white/55 text-xs uppercase tracking-widest mb-4">More on Medium</p>
         <a
           href={MEDIUM_URL}
           target="_blank"

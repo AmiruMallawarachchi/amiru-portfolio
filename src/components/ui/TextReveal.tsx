@@ -40,7 +40,9 @@ export default function TextReveal({ children, width = "fit-content", delay = 0.
           bottom: 4,
           left: 0,
           right: 0,
-          background: "white",
+          // Matches the page background, so an interrupted reveal reads as empty
+          // space instead of flashing a bright block over dark sections.
+          background: "var(--color-background)",
           zIndex: 20,
         }}
       />

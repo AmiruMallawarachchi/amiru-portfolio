@@ -32,8 +32,9 @@ export default function AboutSection({ profile }: AboutProps) {
           <div className="relative aspect-[3/4] max-w-xs md:max-w-none rounded-2xl overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src={profile.hero_image || "/amiru.jpg"}
-              alt={profile.full_name}
+              alt={`Portrait of ${profile.full_name}`}
               fill
+              sizes="(min-width: 768px) 33vw, 80vw"
               className="object-cover object-top"
             />
           </div>
@@ -51,15 +52,15 @@ export default function AboutSection({ profile }: AboutProps) {
               </p>
               <div className="space-y-4">
                 <div className="border-l border-white/10 pl-6 py-2">
-                  <span className="font-mono text-foreground/30 text-xs block mb-1">Status</span>
+                  <span className="font-mono text-foreground/65 text-xs block mb-1">Status</span>
                   <p className="text-sm font-medium">{profile.status}</p>
                 </div>
                 <div className="border-l border-white/10 pl-6 py-2">
-                  <span className="font-mono text-foreground/30 text-xs block mb-1">Location</span>
+                  <span className="font-mono text-foreground/65 text-xs block mb-1">Location</span>
                   <p className="text-sm font-medium">{profile.location}</p>
                 </div>
                 <div className="border-l border-white/10 pl-6 py-2">
-                  <span className="font-mono text-foreground/30 text-xs block mb-1">Passions</span>
+                  <span className="font-mono text-foreground/65 text-xs block mb-1">Passions</span>
                   <p className="text-sm font-medium text-foreground italic">{profile.passions}</p>
                 </div>
               </div>

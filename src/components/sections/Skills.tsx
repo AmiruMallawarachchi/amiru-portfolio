@@ -29,7 +29,7 @@ export default function SkillsSection({ skills }: SkillsProps) {
         <div className="flex justify-center mb-16 sm:mb-24 lg:mb-32">
           <TextReveal>
             <h2 className="font-display font-bold text-center tracking-tighter text-[clamp(1.9rem,6vw,4.5rem)] leading-tight">
-              SKILLS <span className="text-white/20">&</span> CAPABILITIES
+              SKILLS <span className="text-white/55">&</span> CAPABILITIES
             </h2>
           </TextReveal>
         </div>
@@ -48,7 +48,7 @@ export default function SkillsSection({ skills }: SkillsProps) {
 
           {skills.map((skillGroup, groupIdx) => (
             <div key={groupIdx} className="bg-background p-6 sm:p-8 group transition-colors duration-500 hover:bg-white/5 relative z-20">
-              <h3 className="font-mono text-foreground/30 text-xs uppercase tracking-widest mb-8 group-hover:text-accent transition-colors">
+              <h3 className="font-mono text-foreground/65 text-xs uppercase tracking-widest mb-8 group-hover:text-accent transition-colors">
                 {skillGroup.category}
               </h3>
               <div className="space-y-3">

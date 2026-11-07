@@ -6,6 +6,7 @@ import {
   BrainCircuit,
   Code2,
   Database,
+  FileSearch,
   LockKeyhole,
   Network,
   Smartphone,
@@ -16,6 +17,7 @@ import type { Project } from "@/lib/content";
 const artwork = {
   mindlens: { icon: BrainCircuit, accent: "#ff9f1c", secondary: "#2ec4b6", label: "bounded intelligence" },
   travel: { icon: Network, accent: "#8da7ff", secondary: "#f19bd8", label: "tool-aware routing" },
+  documind: { icon: FileSearch, accent: "#7dd3fc", secondary: "#a78bfa", label: "answers with sources" },
   solvix: { icon: Activity, accent: "#56d7a7", secondary: "#e6c77a", label: "accountable operations" },
   data: { icon: Database, accent: "#78c8ff", secondary: "#bf8fff", label: "signals into systems" },
   security: { icon: LockKeyhole, accent: "#ffb85c", secondary: "#e67a86", label: "trust by design" },

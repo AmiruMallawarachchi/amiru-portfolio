@@ -1,6 +1,5 @@
-import { certifications, education, profile, projects, type Project } from "@/lib/content";
+import { certifications, education, orderedProjects, profile, type Project } from "@/lib/content";
 import { SITE, SKILL_KEYWORDS } from "@/lib/site";
-
 // Schema.org graph. One @id per entity so pages can reference the same person
 // instead of redefining them, which is what lets Google and AI answer engines
 // reconcile this site with GitHub, LinkedIn and Hugging Face.
@@ -15,6 +14,7 @@ export function personSchema(): SchemaNode {
     "@type": "Person",
     "@id": PERSON_ID,
     name: profile.full_name,
+    alternateName: SITE.alternateNames,
     url: SITE.url,
     image: `${SITE.url}${profile.hero_image}`,
     jobTitle: profile.title,
@@ -115,8 +115,8 @@ export function projectListSchema(): SchemaNode {
   return {
     "@type": "ItemList",
     name: "Software and Gen AI projects by Amiru Mallawarachchi",
-    numberOfItems: projects.length,
-    itemListElement: projects.map((project, index) => ({
+    numberOfItems: orderedProjects.length,
+    itemListElement: orderedProjects.map((project, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: project.title,

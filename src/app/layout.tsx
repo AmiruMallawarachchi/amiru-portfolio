@@ -70,6 +70,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [{ url: "/favicon.ico", sizes: "any" }],
   },
+  verification: {
+    ...(SITE.googleSiteVerification ? { google: SITE.googleSiteVerification } : {}),
+    ...(SITE.bingSiteVerification ? { other: { "msvalidate.01": SITE.bingSiteVerification } } : {}),
+  },
 };
 
 export default function RootLayout({

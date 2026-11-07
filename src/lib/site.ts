@@ -8,25 +8,28 @@ const rawUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://amiru-portfolio.verc
 export const SITE = {
   url: rawUrl.replace(/\/$/, ""),
   name: profile.full_name,
+  alternateNames: ["Amiru", "Amiru Noel", "Amiru Noel Mallawarachchi", "Amiru Mallawarachchi portfolio"],
   locale: "en_US",
   role: "AI Engineering Student",
   discipline: "Gen AI Engineering · Agentic Systems · Production AI",
   title: "Amiru Mallawarachchi — AI Engineering Student | Gen AI & Agentic Systems",
   description:
-    "AI engineering student building production-grade Gen AI systems: LangGraph agent workflows, MCP tool servers, retrieval pipelines, and the FastAPI and Next.js backends that keep them reliable.",
+    "Amiru Mallawarachchi is a final-year software engineering student in Moratuwa, Sri Lanka, building Gen AI systems: LangGraph agent workflows, MCP tool servers, retrieval pipelines, and the FastAPI and Next.js backends that keep them reliable.",
   shortDescription:
-    "AI engineering student building agentic Gen AI systems — LangGraph, MCP and retrieval — with production backends.",
+    "Final-year software engineering student building agentic Gen AI systems with LangGraph, MCP and retrieval.",
   keywords: [
     "Amiru Mallawarachchi",
-    "AI engineer intern",
-    "Gen AI engineer",
+    "Amiru Mallawarachchi portfolio",
+    "Amiru Noel Mallawarachchi",
+    "AI engineer Sri Lanka",
     "AI engineering student",
+    "Gen AI engineer",
+    "AI engineer intern",
     "agentic systems",
     "LangGraph developer",
     "MCP server",
     "RAG pipeline",
     "FastAPI engineer",
-    "Sri Lanka AI engineer",
     "LLM production systems",
   ],
   ogImage: {
@@ -36,6 +39,11 @@ export const SITE = {
     alt: "Amiru Mallawarachchi — AI engineering student building agentic Gen AI systems",
   },
   sameAs: [profile.github_url, profile.linkedin_url, profile.huggingface_url, "https://medium.com/@amirunoel8"],
+  // Used by sitemap.xml instead of a fresh timestamp on every build, so search
+  // engines are not told the whole site changed when only a deploy happened.
+  contentUpdated: "2026-11-07",
+  googleSiteVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "",
+  bingSiteVerification: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION ?? "",
 } as const;
 
 export const SKILL_KEYWORDS = skills.flatMap((group) => group.items);

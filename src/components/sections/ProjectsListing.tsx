@@ -24,7 +24,7 @@ export default function ProjectsListing({ projects }: { projects: Project[] }) {
             </TextReveal>
           </div>
             <p className="max-w-md text-foreground/60 md:text-right font-light">
-            Three projects that show the range: agentic AI, MCP systems, and production software engineering.
+            MindLens, TripWeaver, and DocuMind: three agent systems, three different problems, all of them running in public.
           </p>
         </div>
 

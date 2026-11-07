@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, BookOpen } from "lucide-react";
 import TextReveal from "@/components/ui/TextReveal";
+import Reveal from "@/components/ui/Reveal";
 import { MEDIUM_URL, type Article } from "@/lib/content";
 
 interface BlogProps {
@@ -37,21 +37,18 @@ export default function BlogSection({ posts }: BlogProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post, idx) => (
-            <motion.a
-              key={idx}
-              href={post.link}
-              target="_blank"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="group glass p-2 rounded-[2.5rem] flex flex-col h-full hover:border-white/30 transition-all duration-500"
-            >
+            <Reveal key={idx} delay={idx * 0.08} className="h-full">
+              <a
+                href={post.link}
+                target="_blank"
+                className="group glass p-2 rounded-[2.5rem] flex flex-col h-full hover:border-white/30 transition-all duration-500"
+              >
               <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden mb-8">
                 <Image
                   src={post.image}
                   alt={post.title}
                   fill
+                  sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 90vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Category badge */}
@@ -78,18 +75,13 @@ export default function BlogSection({ posts }: BlogProps) {
                   <span>Full Article</span>
                 </div>
               </div>
-            </motion.a>
+              </a>
+            </Reveal>
           ))}
         </div>
 
         {/* View All Articles Link */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex justify-center mt-16"
-        >
+        <Reveal delay={0.1} className="flex justify-center mt-16">
           <Link
             href="/blog"
             className="group flex items-center gap-4 glass px-7 sm:px-10 py-4 sm:py-5 rounded-full hover:bg-white hover:text-black transition-all duration-500"
@@ -100,7 +92,7 @@ export default function BlogSection({ posts }: BlogProps) {
               className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
             />
           </Link>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

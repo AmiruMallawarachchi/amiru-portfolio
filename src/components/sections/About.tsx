@@ -1,9 +1,8 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 import Image from "next/image";
 import TextReveal from "@/components/ui/TextReveal";
+import Reveal from "@/components/ui/Reveal";
 import type { Profile } from "@/lib/content";
 
 interface AboutProps {
@@ -11,21 +10,11 @@ interface AboutProps {
 }
 
 export default function AboutSection({ profile }: AboutProps) {
-  const containerRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
-
   return (
     <section
-      ref={containerRef}
       className="relative py-24 sm:py-32 px-5 sm:px-8 flex items-center justify-center bg-background"
     >
-      <motion.div style={{ opacity, y }} className="max-w-6xl w-full">
+      <Reveal distance={48} className="max-w-6xl w-full">
         <span className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-8 block">{"// profile"}</span>
 
         <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-16 items-start">
@@ -67,7 +56,7 @@ export default function AboutSection({ profile }: AboutProps) {
             </div>
           </div>
         </div>
-      </motion.div>
+      </Reveal>
     </section>
   );
 }

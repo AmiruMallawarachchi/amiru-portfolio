@@ -18,6 +18,7 @@ export default function ContactSection() {
       name: formData.get("name"),
       email: formData.get("email"),
       message: formData.get("message"),
+      website: formData.get("website"),
     };
 
     try {
@@ -102,6 +103,14 @@ export default function ContactSection() {
           {/* Form */}
           <div className="glass p-6 sm:p-9 md:p-12 rounded-3xl md:rounded-[3rem]">
             <form onSubmit={handleSubmit} className="space-y-8" aria-label="Contact form">
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="hidden"
+              />
               <div className="space-y-2">
                 <label htmlFor="contact-name" className="ml-1 text-[10px] font-bold uppercase tracking-widest text-white/65">Your Name</label>
                 <input

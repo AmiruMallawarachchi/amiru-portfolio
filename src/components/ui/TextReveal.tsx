@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
+import { useInViewOnce } from "@/lib/useInViewOnce";
 
 interface TextRevealProps {
   children: ReactNode;
@@ -10,42 +10,20 @@ interface TextRevealProps {
 }
 
 export default function TextReveal({ children, width = "fit-content", delay = 0.2 }: TextRevealProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const ref = useInViewOnce<HTMLDivElement>();
 
   return (
-    <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }}>
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 75 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        transition={{ duration: 0.5, delay }}
-      >
-        {children}
-      </motion.div>
-      <motion.div
-        variants={{
-          hidden: { left: 0 },
-          visible: { left: "100%" },
-        }}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        transition={{ duration: 0.5, ease: "easeIn", delay }}
-        style={{
-          position: "absolute",
-          top: 4,
-          bottom: 4,
-          left: 0,
-          right: 0,
-          // Matches the page background, so an interrupted reveal reads as empty
-          // space instead of flashing a bright block over dark sections.
-          background: "var(--color-background)",
-          zIndex: 20,
-        }}
-      />
+    <div
+      ref={ref}
+      className="text-reveal"
+      style={
+        {
+          width,
+          "--reveal-delay": `${Math.round(delay * 1000)}ms`,
+        } as CSSProperties
+      }
+    >
+      <div className="text-reveal-inner">{children}</div>
     </div>
   );
 }

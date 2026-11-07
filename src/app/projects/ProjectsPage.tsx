@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import TextReveal from "@/components/ui/TextReveal";
+import Reveal from "@/components/ui/Reveal";
 import ProjectCard from "@/components/ProjectCard";
 import { profile } from "@/lib/content";
 import type { Project } from "@/lib/content";
@@ -14,7 +14,7 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
       {/* Hero */}
       <section className="relative pt-32 sm:pt-40 md:pt-48 pb-16 sm:pb-24 overflow-hidden px-5 sm:px-8">
         <div className="max-w-7xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <Reveal distance={16}>
             <Link
               href="/"
               className="inline-flex items-center gap-2 text-foreground/55 hover:text-foreground transition-colors text-xs uppercase tracking-widest mb-12 font-mono"
@@ -22,18 +22,15 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
               <ArrowLeft size={14} />
               Back to Home
             </Link>
-          </motion.div>
+          </Reveal>
 
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
             <div>
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.1 }}
+              <span
                 className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-4 block"
               >
                 {"// all work"}
-              </motion.span>
+              </span>
               <TextReveal>
                 <h1 className="font-display font-medium leading-[0.95] text-[clamp(2.5rem,9vw,6rem)]">
                   ALL <br />
@@ -41,14 +38,13 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
                 </h1>
               </TextReveal>
             </div>
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+            <Reveal delay={0.15} distance={16}>
+            <p
               className="max-w-md text-foreground/65 md:text-right font-light"
             >
               The complete collection — from agentic AI systems to enterprise apps and mobile builds.
-            </motion.p>
+            </p>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -57,8 +53,14 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
       <section className="pb-24 sm:pb-32 px-5 sm:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-16 sm:gap-y-20">
-            {projects.map((project) => (
-              <ProjectCard key={project.slug} project={project} featured={project.featured} compact />
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={project.slug}
+                project={project}
+                featured={project.featured}
+                compact
+                priority={index === 0}
+              />
             ))}
           </div>
         </div>

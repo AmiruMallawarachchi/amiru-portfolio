@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowLeft, BookOpen } from "lucide-react";
 import TextReveal from "@/components/ui/TextReveal";
+import Reveal from "@/components/ui/Reveal";
 import { MEDIUM_URL, type Article } from "@/lib/content";
 
 interface BlogProps {
@@ -27,11 +28,7 @@ export default function BlogPage({ posts }: BlogProps) {
         </div>
 
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <Reveal distance={16}>
             <Link
               href="/"
               className="inline-flex items-center gap-2 text-white/55 hover:text-white transition-colors text-xs uppercase tracking-widest mb-12"
@@ -39,18 +36,15 @@ export default function BlogPage({ posts }: BlogProps) {
               <ArrowLeft size={14} />
               Back to Home
             </Link>
-          </motion.div>
+          </Reveal>
 
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
             <div>
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.1 }}
+              <span
                 className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-4 block"
               >
                 {"// writing"}
-              </motion.span>
+              </span>
               <TextReveal>
                 <h1 className="font-display font-medium leading-[0.95] text-[clamp(2.5rem,9vw,6rem)]">
                   THE <br />
@@ -58,12 +52,7 @@ export default function BlogPage({ posts }: BlogProps) {
                 </h1>
               </TextReveal>
             </div>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="md:text-right"
-            >
+            <Reveal delay={0.15} distance={16} className="md:text-right">
               <p className="text-white/65 font-light mb-4">
                 Explainers on transformers, sequence modelling and the maths under modern AI.
               </p>
@@ -76,16 +65,11 @@ export default function BlogPage({ posts }: BlogProps) {
                 All articles on Medium
                 <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
-            </motion.div>
+            </Reveal>
           </div>
 
           {/* Category pills */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-wrap gap-3 mt-16"
-          >
+          <Reveal delay={0.25} distance={14} className="flex flex-wrap gap-3 mt-16">
             {categories.map((cat) => (
               <span
                 key={cat}
@@ -94,7 +78,7 @@ export default function BlogPage({ posts }: BlogProps) {
                 {cat}
               </span>
             ))}
-          </motion.div>
+          </Reveal>
         </div>
       </section>
 
@@ -102,21 +86,20 @@ export default function BlogPage({ posts }: BlogProps) {
       <section className="pb-16 px-5 sm:px-8">
         <div className="max-w-7xl mx-auto">
           {posts.length > 0 && (
-            <motion.a
+            <Reveal distance={40} className="mb-8">
+            <a
               href={posts[0].link}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="group glass p-3 rounded-[2.5rem] grid grid-cols-1 md:grid-cols-2 gap-0 hover:border-white/30 transition-all duration-500 overflow-hidden mb-8"
+              className="group glass p-3 rounded-[2.5rem] grid grid-cols-1 md:grid-cols-2 gap-0 hover:border-white/30 transition-all duration-500 overflow-hidden"
             >
               <div className="relative aspect-[4/3] md:aspect-auto rounded-[2rem] overflow-hidden">
                 <Image
                   src={posts[0].image}
                   alt={posts[0].title}
                   fill
+                  priority
+                  sizes="(min-width: 768px) 50vw, 92vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute top-4 left-4">
@@ -148,21 +131,18 @@ export default function BlogPage({ posts }: BlogProps) {
                   <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
               </div>
-            </motion.a>
+            </a>
+            </Reveal>
           )}
 
           {/* Rest of articles — 3-column grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.slice(1).map((post, idx) => (
-              <motion.a
-                key={idx}
+              <Reveal key={idx} delay={idx * 0.06} className="h-full">
+              <a
                 href={post.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.08 }}
                 className="group glass p-2 rounded-[2.5rem] flex flex-col h-full hover:border-white/30 transition-all duration-500"
               >
                 <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden mb-6">
@@ -195,7 +175,8 @@ export default function BlogPage({ posts }: BlogProps) {
                     <span>Read Article</span>
                   </div>
                 </div>
-              </motion.a>
+              </a>
+              </Reveal>
             ))}
           </div>
         </div>

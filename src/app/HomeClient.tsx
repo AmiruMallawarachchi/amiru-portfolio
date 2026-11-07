@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useRef } from "react";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import AboutSection from "@/components/sections/About";
@@ -11,6 +10,7 @@ import ProjectsListing from "@/components/sections/ProjectsListing";
 import BlogSection from "@/components/sections/BlogSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Magnetic from "@/components/ui/Magnetic";
+import Reveal from "@/components/ui/Reveal";
 import AgentGraph from "@/components/hero/AgentGraph";
 import { Download, Github, Linkedin, Mail, ArrowDown, Cpu } from "lucide-react";
 import type { Project, Profile, Article } from "@/lib/content";
@@ -125,16 +125,15 @@ export default function HomeClient({
           </div>
 
           {/* System map */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.1, delay: 0.2, ease: "easeOut" }}
+          <Reveal
+            delay={0.15}
+            distance={16}
             className="relative mt-10 lg:absolute lg:bottom-[26%] lg:left-[42%] lg:right-0 lg:top-[14%] lg:mt-0"
           >
             <div className="flex h-full items-center justify-center">
               <AgentGraph />
             </div>
-          </motion.div>
+          </Reveal>
 
           {/* Statement + meta bar, anchored to the bottom so the space between
               them and the name reads as one deliberate gap, not two. */}
@@ -145,10 +144,9 @@ export default function HomeClient({
               </p>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.35 }}
+            <Reveal
+              delay={0.25}
+              distance={14}
               className="flex flex-col justify-between gap-5 border-t border-white/10 pt-5 sm:pt-6 md:flex-row md:items-center sm:gap-6"
             >
               <div className="flex flex-wrap items-center gap-x-4 gap-y-3 sm:gap-x-5">
@@ -175,7 +173,7 @@ export default function HomeClient({
                   <ArrowDown size={13} strokeWidth={2} className="transition-transform group-hover:translate-y-0.5" />
                 </a>
               </Magnetic>
-            </motion.div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -210,7 +208,7 @@ export default function HomeClient({
           </Magnetic>
         </div>
         <p className="font-mono text-foreground/55 text-xs uppercase tracking-widest mb-4">
-          © {new Date().getFullYear()} Built with intent
+          © {new Date().getFullYear()} — designed and built by me
         </p>
         <span className="text-foreground/55 font-display italic">{profile.full_name}</span>
       </footer>

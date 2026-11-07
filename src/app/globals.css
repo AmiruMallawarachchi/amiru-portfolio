@@ -31,8 +31,10 @@
     @apply border-border;
   }
 
+  /* The custom cursor only exists once React mounts. Hiding the native cursor
+     unconditionally leaves no pointer at all when scripts fail or are blocked. */
   @media (pointer: fine) {
-    * {
+    .js * {
       cursor: none;
     }
   }
@@ -93,6 +95,96 @@
     background-size: 40px 40px;
     pointer-events: none;
   }
+}
+
+/* ── Scroll reveals ───────────────────────────────────────────────────────── */
+/* Hidden states are scoped to `.js`, which a tiny inline script adds before
+   first paint. With scripts blocked the page renders complete and static. */
+.reveal {
+  --reveal-distance: 28px;
+  --reveal-delay: 0ms;
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-distance), 0);
+}
+
+.js .reveal[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.7s ease var(--reveal-delay),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay);
+}
+
+.text-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.js .text-reveal-inner {
+  transform: translate3d(0, 110%, 0);
+}
+
+.js .text-reveal[data-visible="true"] .text-reveal-inner {
+  transform: none;
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 200ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .js .text-reveal-inner {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ── Stack chips ──────────────────────────────────────────────────────────── */
+/* Captions are CSS-only so they work with the keyboard and without JavaScript. */
+.stack-chip {
+  position: relative;
+  display: inline-flex;
+}
+
+.stack-chip-note {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 8px);
+  z-index: 40;
+  width: max-content;
+  max-width: min(16rem, 60vw);
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(236, 235, 229, 0.12);
+  border-radius: 0.65rem;
+  background: #101318;
+  color: rgba(236, 235, 229, 0.82);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    visibility 0.18s;
+  pointer-events: none;
+}
+
+.stack-chip:hover .stack-chip-note,
+.stack-chip:focus-within .stack-chip-note {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
 }
 
 /* ── Hero system map ──────────────────────────────────────────────────────── */

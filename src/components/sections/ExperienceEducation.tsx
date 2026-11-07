@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Reveal from "@/components/ui/Reveal";
 
 interface ExperienceItem {
   title: string;
@@ -30,18 +30,12 @@ export default function ExperienceEducation({ experience, education }: Experienc
           <h2 className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-12 block">01 / Experience</h2>
           <div className="space-y-12 sm:space-y-16">
             {experience.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="group"
-              >
+              <Reveal key={idx} delay={0.05 * idx} className="group">
                 <span className="font-mono text-foreground/65 text-sm mb-4 block">{item.period}</span>
                 <h3 className="text-2xl font-display mb-2 group-hover:text-foreground transition-colors">{item.title}</h3>
                 <p className="text-foreground/65 text-sm mb-6">{item.company}</p>
                 <p className="text-foreground/65 font-light leading-relaxed">{item.description}</p>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -51,18 +45,12 @@ export default function ExperienceEducation({ experience, education }: Experienc
           <h2 className="font-mono text-accent/70 uppercase tracking-widest text-xs mb-12 block">02 / Education</h2>
           <div className="space-y-12 sm:space-y-16">
             {education.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="group"
-              >
+              <Reveal key={idx} delay={0.05 * idx} className="group">
                 <span className="font-mono text-foreground/65 text-sm mb-4 block">{item.period}</span>
                 <h3 className="text-2xl font-display mb-2 group-hover:text-foreground transition-colors">{item.degree}</h3>
                 <p className="text-foreground/65 text-sm mb-6">{item.institution}</p>
                 <p className="text-foreground/65 font-light leading-relaxed">{item.description}</p>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>

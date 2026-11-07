@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
 import type { Project } from "@/lib/content";
 import ProjectArtwork from "@/components/ProjectArtwork";
+import Reveal from "@/components/ui/Reveal";
 
 export default function ProjectCard({
   project,
@@ -19,13 +19,7 @@ export default function ProjectCard({
   priority?: boolean;
 }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 80 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="group relative"
-    >
+    <Reveal distance={44} className="group relative">
       {featured && (
         <div className="absolute -top-6 left-0 flex items-center gap-2 z-10">
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-[0_0_8px_rgba(255,159,28,0.8)]" />
@@ -117,6 +111,6 @@ export default function ProjectCard({
           Case study →
         </Link>
       </div>
-    </motion.div>
+    </Reveal>
   );
 }

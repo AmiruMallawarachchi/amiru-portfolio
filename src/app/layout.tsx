@@ -78,8 +78,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${body.variable} ${display.variable} ${mono.variable}`}>
+    <html
+      lang="en"
+      className={`${body.variable} ${display.variable} ${mono.variable}`}
+      // The inline script below adds the `js` class before hydration.
+      suppressHydrationWarning
+    >
       <body className="antialiased font-sans">
+        {/* Runs before first paint: reveal animations and the custom cursor are
+            gated on this class, so blocked or broken scripts leave a complete,
+            readable page instead of hidden sections. */}
+        <script
+          dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }}
+        />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-accent focus:px-5 focus:py-3 focus:font-mono focus:text-xs focus:font-bold focus:uppercase focus:tracking-widest focus:text-background"
